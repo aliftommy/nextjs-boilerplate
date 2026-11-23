@@ -1,0 +1,1013 @@
+{
+  "keterangan": "Isi teks website Kopi Padu Rasa per halaman beserta alamat link-nya, dalam dua bahasa (id = Indonesia, en = English). Disusun 15 Nov 2026 dari isi situs saat ini. Teks dalam [kurung siku] = placeholder yang belum diisi. Link yang diawali \"/\" adalah halaman di situs ini sendiri (mis. \"/menu\" = halaman Menu).",
+  "situs": {
+    "nama_brand": "Kopi Padu Rasa",
+    "perusahaan": "PT. Sinergi Rasa Nusantara",
+    "jenis_usaha": { "id": "Kopi to go", "en": "Coffee to go" },
+    "jumlah_toko": 28,
+    "wilayah": { "id": "Sulawesi Selatan", "en": "South Sulawesi" },
+    "jam_buka": { "id": "24 jam (semua toko)", "en": "24 hours (all stores)" },
+    "bahasa_situs": ["Bahasa Indonesia", "English"],
+    "kantor_pusat": {
+      "perusahaan": "PT. Sinergi Rasa Nusantara",
+      "jalan": "Jl Urip Sumoharjo",
+      "kota": { "id": "Makassar, Sulawesi Selatan", "en": "Makassar, South Sulawesi" },
+      "negara": "Indonesia"
+    },
+    "kontak": {
+      "whatsapp_pemesanan": { "nomor": "0821-8717-165", "link": "https://wa.me/628218717165" },
+      "whatsapp_kemitraan": { "nomor": "0851 7704 9460", "link": "https://wa.me/6285177049460" },
+      "whatsapp_karir": { "nomor": "0823 4614 5331", "link": "https://wa.me/6282346145331" }
+    },
+    "pesan_pembuka_whatsapp": {
+      "pemesanan": {
+        "pesan": "Halo Kopi Padu Rasa, saya mau pesan.",
+        "link": "https://wa.me/628218717165?text=Halo%20Kopi%20Padu%20Rasa%2C%20saya%20mau%20pesan."
+      },
+      "kemitraan": {
+        "pesan": "Halo Kopi Padu Rasa, saya tertarik dengan program kemitraan.",
+        "link": "https://wa.me/6285177049460?text=Halo%20Kopi%20Padu%20Rasa%2C%20saya%20tertarik%20dengan%20program%20kemitraan."
+      },
+      "karir": {
+        "pesan": "Halo Kopi Padu Rasa, saya ingin melamar pekerjaan.",
+        "link": "https://wa.me/6282346145331?text=Halo%20Kopi%20Padu%20Rasa%2C%20saya%20ingin%20melamar%20pekerjaan."
+      }
+    },
+    "sosial_media": {
+      "instagram": { "akun": "@kopipadurasa", "link": "https://www.instagram.com/kopipadurasa/" },
+      "tiktok": { "akun": "@kopipadurasa", "link": "https://www.tiktok.com/@kopipadurasa" },
+      "threads": { "akun": "@kopipadurasa", "link": "https://www.threads.com/@kopipadurasa" },
+      "facebook": { "akun": "Kopi Padu Rasa", "link": "https://www.facebook.com/profile.php?id=61581414843097" },
+      "whatsapp": { "akun": "0821-8717-165", "link": "https://wa.me/628218717165" }
+    },
+    "pesan_online": [
+      {
+        "aplikasi": "GoFood",
+        "cara": { "id": "Pilih toko", "en": "Choose a store" },
+        "toko_tersedia": 25,
+        "link": "membuka pop up Pilih toko (link per toko ada di halaman Lokasi)"
+      },
+      {
+        "aplikasi": "GrabFood",
+        "cara": { "id": "Pilih toko", "en": "Choose a store" },
+        "toko_tersedia": 25,
+        "link": "membuka pop up Pilih toko (link per toko ada di halaman Lokasi)"
+      },
+      {
+        "aplikasi": "ShopeeFood",
+        "cara": { "id": "Pilih toko", "en": "Choose a store" },
+        "toko_tersedia": 24,
+        "link": "membuka pop up Pilih toko (link per toko ada di halaman Lokasi)"
+      },
+      {
+        "aplikasi": "WhatsApp",
+        "cara": { "id": "Pesan langsung ke 0821-8717-165", "en": "Order directly via 0821-8717-165" },
+        "link": "https://wa.me/628218717165?text=Halo%20Kopi%20Padu%20Rasa%2C%20saya%20mau%20pesan."
+      }
+    ],
+    "halaman_aktif": [
+      { "nama": "Beranda", "link": "/" },
+      { "nama": "Menu", "link": "/menu" },
+      { "nama": "Kemitraan", "link": "/kemitraan" },
+      { "nama": "Lokasi", "link": "/lokasi" },
+      { "nama": "Karir", "link": "/karir" }
+    ],
+    "halaman_nonaktif": {
+      "daftar": [{ "nama": "Kontak", "link": "/kontak" }, { "nama": "Tentang", "link": "/tentang" }],
+      "keterangan": "Dimatikan sementara: tidak tampil di menu, alamatnya dialihkan ke Beranda."
+    }
+  },
+  "bagian_di_semua_halaman": {
+    "header": {
+      "logo": { "teks": "Kopi Padu rasa", "link": "/" },
+      "navigasi": [
+        { "id": "Beranda", "en": "Home", "link": "/" },
+        { "id": "Menu", "en": "Menu", "link": "/menu" },
+        { "id": "Kemitraan", "en": "Partnership", "link": "/kemitraan" },
+        { "id": "Lokasi", "en": "Locations", "link": "/lokasi" },
+        { "id": "Karir", "en": "Careers", "link": "/karir" }
+      ],
+      "pilihan_bahasa": ["Bahasa Indonesia", "English"],
+      "tombol_menu_hp": { "id": "Buka menu", "en": "Open menu" }
+    },
+    "menu_burger_hp_tablet": {
+      "tombol_utama": { "id": "Pesan Aplikasi", "en": "Order Online", "link": "/menu#pesan-online" },
+      "daftar_menu": [
+        { "id": "Beranda", "en": "Home", "link": "/" },
+        { "id": "Menu", "en": "Menu", "link": "/menu" },
+        { "id": "Kemitraan", "en": "Partnership", "link": "/kemitraan" },
+        { "id": "Lokasi", "en": "Locations", "link": "/lokasi" },
+        { "id": "Karir", "en": "Careers", "link": "/karir" }
+      ],
+      "tautan_kecil": {
+        "id": "Ikuti kami di Instagram ›",
+        "en": "Follow us on Instagram ›",
+        "link": "https://www.instagram.com/kopipadurasa/"
+      },
+      "pilihan_bahasa": ["Bahasa Indonesia", "English"],
+      "wilayah": { "teks": "Indonesia", "link": "/lokasi" },
+      "tombol_tutup": { "id": "Tutup menu", "en": "Close menu" },
+      "logo_link": "/"
+    },
+    "footer": {
+      "logo": { "teks": "Kopi Padu Rasa", "link": "/" },
+      "pesan_online": {
+        "judul": { "id": "Pesan online", "en": "Order online" },
+        "tombol": [
+          { "nama": "GoFood", "link": "membuka pop up Pilih toko (link per toko ada di halaman Lokasi)" },
+          { "nama": "GrabFood", "link": "membuka pop up Pilih toko (link per toko ada di halaman Lokasi)" },
+          { "nama": "ShopeeFood", "link": "membuka pop up Pilih toko (link per toko ada di halaman Lokasi)" },
+          { "nama": "WhatsApp", "link": "https://wa.me/628218717165?text=Halo%20Kopi%20Padu%20Rasa%2C%20saya%20mau%20pesan." }
+        ]
+      },
+      "jelajahi": {
+        "judul": { "id": "Jelajahi", "en": "Explore" },
+        "tautan": [
+          { "id": "Beranda", "en": "Home", "link": "/" },
+          { "id": "Menu", "en": "Menu", "link": "/menu" },
+          { "id": "Kemitraan", "en": "Partnership", "link": "/kemitraan" },
+          { "id": "Lokasi", "en": "Locations", "link": "/lokasi" },
+          { "id": "Karir", "en": "Careers", "link": "/karir" }
+        ]
+      },
+      "kantor_pusat": {
+        "judul": { "id": "Kantor pusat", "en": "Head office" },
+        "alamat": {
+          "id": "PT. Sinergi Rasa Nusantara, Jl Urip Sumoharjo, Makassar, Sulawesi Selatan, Indonesia",
+          "en": "PT. Sinergi Rasa Nusantara, Jl Urip Sumoharjo, Makassar, South Sulawesi, Indonesia"
+        }
+      },
+      "ikuti_kami": {
+        "judul": { "id": "Ikuti kami", "en": "Follow us" },
+        "ikon": [
+          { "nama": "Instagram", "link": "https://www.instagram.com/kopipadurasa/" },
+          { "nama": "TikTok", "link": "https://www.tiktok.com/@kopipadurasa" },
+          { "nama": "Facebook", "link": "https://www.facebook.com/profile.php?id=61581414843097" },
+          { "nama": "Threads", "link": "https://www.threads.com/@kopipadurasa" },
+          { "nama": "WhatsApp", "link": "https://wa.me/628218717165" }
+        ]
+      },
+      "hak_cipta": "© 2026 Kopi Padu Rasa",
+      "pilihan_bahasa": ["Bahasa Indonesia", "English"],
+      "wilayah": { "teks": "Indonesia", "link": "/lokasi" }
+    },
+    "pop_up_pilih_toko": {
+      "keterangan": "Muncul saat tombol GoFood, GrabFood, atau ShopeeFood ditekan (halaman Menu dan footer). Daftar 30 toko, urutannya sama dengan halaman Lokasi.",
+      "judul": { "id": "Pilih toko", "en": "Choose a store" },
+      "info": {
+        "GoFood": { "id": "25 dari 30 toko sudah ada di GoFood.", "en": "25 of 30 stores are on GoFood." },
+        "GrabFood": { "id": "25 dari 30 toko sudah ada di GrabFood.", "en": "25 of 30 stores are on GrabFood." },
+        "ShopeeFood": { "id": "24 dari 30 toko sudah ada di ShopeeFood.", "en": "24 of 30 stores are on ShopeeFood." }
+      },
+      "label_toko_tersedia": { "id": "Pesan →", "en": "Order →" },
+      "label_toko_belum_tersedia": { "id": "Akan datang", "en": "Coming soon" },
+      "toko_belum_tersedia": {
+        "GoFood": ["Bone", "Limbung", "Pare-Pare", "Soppeng", "Takalar"],
+        "GrabFood": ["Bone", "Pare-Pare", "Pattalassang", "Soppeng", "Takalar"],
+        "ShopeeFood": ["Bone", "Limbung", "Pallangga", "Pare-Pare", "Soppeng", "Takalar"]
+      },
+      "tombol_tutup": { "id": "Tutup", "en": "Close" }
+    }
+  },
+  "halaman": [
+    {
+      "nama": "Beranda",
+      "alamat": "/",
+      "judul_tab": { "id": "Kopi Padu Rasa · Kopi to Go di 30 Toko", "en": "Kopi Padu Rasa · Coffee to Go at 30 Stores" },
+      "deskripsi_google": "[belum diisi]",
+      "judul_tersembunyi_untuk_google": "Kopi Padu Rasa",
+      "bagian": [
+        {
+          "nama": "Hero slider",
+          "keterangan": "3 gambar berganti otomatis tiap 5 detik, bisa digeser, ada panah dan titik penanda. Teksnya ada di dalam gambar.",
+          "slide": [
+            {
+              "no": 1,
+              "judul": "Big Service KPR",
+              "isi_gambar": "Apa pun acaranya, siapa pun tamunya, Kopi Padu Rasa jadi bagian hangat ceritanya.",
+              "paket": [
+                { "nama": "Padu-Go", "isi": "Minimum order 50 cup, styrofoam, pengiriman (excluded)" },
+                { "nama": "Padu-Big", "isi": "Minimum order 250 cup, pengiriman, booth, 2 barista (excluded)" },
+                { "nama": "Padu-Prime", "isi": "Minimum order 250 cup, pengiriman (+2 barista), booth, custom greetings" }
+              ],
+              "link": "tidak ada (gambar saja)"
+            },
+            {
+              "no": 2,
+              "judul": "Pesan Cepat?",
+              "isi_gambar": "WhatsApp Kopi Padu Rasa 0821 8717 165, atau klik HP ini yah. Gelembung chat: \"Min, Saya Mau Order\".",
+              "jika_ditekan": "Membuka WhatsApp 0821-8717-165 dengan pesan \"Halo Kopi Padu Rasa, saya mau pesan.\"",
+              "link": "https://wa.me/628218717165?text=Halo%20Kopi%20Padu%20Rasa%2C%20saya%20mau%20pesan."
+            },
+            {
+              "no": 3,
+              "judul": "Seliter Padu",
+              "isi_gambar": "Botol 1 liter Padu Coklat, Kopi Padu Aren, Kopi Padu Krimi, dan Padu Matcha di depan siluet kota.",
+              "jika_ditekan": "Menuju kategori Seliter Padu di halaman Menu",
+              "link": "/menu#menu-seliter"
+            }
+          ]
+        },
+        {
+          "nama": "Menu favorit",
+          "label_kecil": "Menu",
+          "judul": { "id": "Menu favorit", "en": "Customer favorites" },
+          "tombol": { "id": "Lihat semua menu →", "en": "See the full menu →", "link": "/menu" },
+          "keterangan": "Kartu bisa ditekan untuk ganti ukuran Normal ↔ Besar.",
+          "produk": [
+            { "nama": "Kopi Padu Krimi", "harga": { "Normal": "Rp 13.000", "Besar": "Rp 18.000" } },
+            { "nama": "Kopi Padu Aren", "harga": { "Normal": "Rp 13.000", "Besar": "Rp 18.000" } },
+            { "nama": "Padu Coklat", "harga": { "Normal": "Rp 13.000", "Besar": "Rp 18.000" } },
+            { "nama": "Padu Matcha", "harga": { "Normal": "Rp 15.000", "Besar": "Rp 22.000" } }
+          ]
+        },
+        {
+          "nama": "Kartu ajakan Lokasi",
+          "label_kecil": { "id": "Lokasi", "en": "Locations" },
+          "judul": { "id": "30 Toko, Cari yang Terdekat!", "en": "30 Stores, Find the Nearest!" },
+          "teks": {
+            "id": "Temukan Kopi Padu Rasa terdekat dan nikmati kopi favoritmu kapan saja.",
+            "en": "Find the nearest Kopi Padu Rasa and enjoy your favorite coffee anytime."
+          },
+          "tombol": { "id": "Lihat lokasi →", "en": "See locations →", "link": "/lokasi" }
+        },
+        {
+          "nama": "Kartu ajakan Kemitraan",
+          "label_kecil": { "id": "Kemitraan", "en": "Partnership" },
+          "judul": { "id": "Buka Toko Kopi Padu Rasa di lokasimu", "en": "Open a Kopi Padu Rasa store in your area" },
+          "teks": { "id": "Jadi bagian dari perjalanan kami.", "en": "Be part of our journey." },
+          "tombol": { "id": "Pelajari kemitraan →", "en": "Learn about the partnership →", "link": "/kemitraan" }
+        }
+      ]
+    },
+    {
+      "nama": "Menu",
+      "alamat": "/menu",
+      "judul_tab": { "id": "Menu · Kopi Padu Rasa", "en": "Menu · Kopi Padu Rasa" },
+      "deskripsi_google": "[belum diisi]",
+      "bagian": [
+        {
+          "nama": "Pesan lewat aplikasi",
+          "label_kecil": "Menu",
+          "judul": { "id": "Pesan lewat Aplikasi", "en": "Order Through the Apps" },
+          "teks": {
+            "id": "Pilih aplikasi favoritmu, atau chat minPadu di WhatsApp.",
+            "en": "Pick your favorite app, or chat with minPadu on WhatsApp."
+          },
+          "tombol": [
+            {
+              "nama": "GoFood",
+              "label": { "id": "Pilih toko →", "en": "Choose a store →" },
+              "link": "membuka pop up Pilih toko (link per toko ada di halaman Lokasi)"
+            },
+            {
+              "nama": "GrabFood",
+              "label": { "id": "Pilih toko →", "en": "Choose a store →" },
+              "link": "membuka pop up Pilih toko (link per toko ada di halaman Lokasi)"
+            },
+            {
+              "nama": "ShopeeFood",
+              "label": { "id": "Pilih toko →", "en": "Choose a store →" },
+              "link": "membuka pop up Pilih toko (link per toko ada di halaman Lokasi)"
+            },
+            {
+              "nama": "WhatsApp",
+              "label": { "id": "Pesan →", "en": "Order →" },
+              "link": "https://wa.me/628218717165?text=Halo%20Kopi%20Padu%20Rasa%2C%20saya%20mau%20pesan."
+            }
+          ],
+          "alamat_bagian": "/menu#pesan-online"
+        },
+        {
+          "nama": "Daftar menu",
+          "keterangan": "Semua kategori tampil berurutan ke bawah. Kartu bertanda ★ Favorit tampil juga di beranda. Kartu dengan dua harga bisa ditekan untuk ganti ukuran.",
+          "label_ukuran": { "Normal": { "id": "Normal", "en": "Regular" }, "Besar": { "id": "Besar", "en": "Large" } },
+          "label_favorit": { "id": "★ Favorit", "en": "★ Favorite" },
+          "kategori": [
+            {
+              "judul": { "id": "Kopi", "en": "Coffee" },
+              "produk": [
+                { "nama": "Kopi Padu Krimi", "harga": { "Normal": "Rp 13.000", "Besar": "Rp 18.000" }, "favorit": true },
+                { "nama": "Kopi Padu Aren", "harga": { "Normal": "Rp 13.000", "Besar": "Rp 18.000" }, "favorit": true },
+                { "nama": "Kopi Padu Pandan", "harga": { "Normal": "Rp 15.000", "Besar": "Rp 20.000" } },
+                { "nama": "Padu Karamel", "harga": { "Normal": "Rp 15.000", "Besar": "Rp 20.000" } },
+                { "nama": "Padu Kano", "harga": { "Normal": "Rp 13.000", "Besar": "Rp 18.000" } },
+                { "nama": "Berikano", "harga": { "Normal": "Rp 15.000", "Besar": "Rp 22.000" } }
+              ],
+              "alamat_bagian": "/menu#menu-kopi"
+            },
+            {
+              "judul": { "id": "Non-Kopi", "en": "Non-Coffee" },
+              "produk": [
+                { "nama": "Padu Coklat", "harga": { "Normal": "Rp 13.000", "Besar": "Rp 18.000" }, "favorit": true },
+                { "nama": "Padu Matcha", "harga": { "Normal": "Rp 15.000", "Besar": "Rp 22.000" }, "favorit": true }
+              ],
+              "alamat_bagian": "/menu#menu-nonkopi"
+            },
+            {
+              "judul": { "id": "Padu Hangat", "en": "Padu Hangat (Hot)" },
+              "keterangan": "Minuman panas, satu ukuran.",
+              "produk": [
+                { "nama": "Kopi Padu Krimi", "harga": "Rp 13.000" },
+                { "nama": "Kopi Padu Aren", "harga": "Rp 13.000" },
+                { "nama": "Padu Kano", "harga": "Rp 13.000" },
+                { "nama": "Padu Matcha", "harga": "Rp 15.000" },
+                { "nama": "Padu Coklat", "harga": "Rp 13.000" }
+              ],
+              "alamat_bagian": "/menu#menu-hangat"
+            },
+            {
+              "judul": { "id": "Seliter Padu", "en": "Seliter Padu (1 Liter)" },
+              "keterangan": "Kemasan botol 1 liter.",
+              "produk": [
+                { "nama": "Kopi Padu Krimi", "harga": "1 Liter Rp 60.000" },
+                { "nama": "Kopi Padu Aren", "harga": "1 Liter Rp 60.000" },
+                { "nama": "Padu Matcha", "harga": "1 Liter Rp 70.000" },
+                { "nama": "Padu Coklat", "harga": "1 Liter Rp 60.000" }
+              ],
+              "alamat_bagian": "/menu#menu-seliter"
+            },
+            {
+              "judul": { "id": "Camilan", "en": "Snacks" },
+              "produk": [{ "nama": "Tahu So", "harga": "Rp 13.000" }],
+              "alamat_bagian": "/menu#menu-camilan"
+            }
+          ]
+        },
+        {
+          "nama": "Padu+++",
+          "judul": "Padu+++",
+          "teks": { "id": "Tambahan untuk minuman", "en": "Drink add-ons" },
+          "tabel": {
+            "kolom": [{ "id": "Normal", "en": "Regular" }, { "id": "Besar", "en": "Large" }],
+            "baris": [
+              { "nama": "Extra shot", "Normal": "+Rp 2.000", "Besar": "+Rp 3.000" },
+              { "nama": "Oat milk", "Normal": "+Rp 3.000", "Besar": "+Rp 5.000" }
+            ]
+          }
+        }
+      ],
+      "bagian_disembunyikan": {
+        "nama": "Seliter Padu (section gelap dengan poster)",
+        "keterangan": "Sedang tidak ditampilkan sejak 12 Nov 2026.",
+        "label_kecil": "1 Liter",
+        "judul": "Seliter Padu",
+        "daftar_harga": [
+          { "nama": "Kopi Padu Krimi", "harga": "Rp 60.000" },
+          { "nama": "Kopi Padu Aren", "harga": "Rp 60.000" },
+          { "nama": "Padu Matcha", "harga": "Rp 70.000" },
+          { "nama": "Padu Coklat", "harga": "Rp 60.000" }
+        ]
+      }
+    },
+    {
+      "nama": "Lokasi",
+      "alamat": "/lokasi",
+      "judul_tab": { "id": "Lokasi 30 Toko · Kopi Padu Rasa", "en": "30 Store Locations · Kopi Padu Rasa" },
+      "deskripsi_google": "[belum diisi]",
+      "judul_tersembunyi_untuk_google": { "id": "30 toko, cari yang paling dekat", "en": "30 stores: find the nearest" },
+      "bagian": [
+        { "nama": "Peta", "isi": "[Peta sebaran toko (embed Google Maps) belum dipasang]" },
+        {
+          "nama": "Daftar toko",
+          "judul": { "id": "Semua toko", "en": "All stores" },
+          "keterangan": "30 kartu, urutannya mengikuti urutan di daftar ini (bukan abjad). Setiap kartu berisi nomor, wilayah, nama toko, jam buka, layanan, dan tombol petunjuk arah ke Google Maps. Toko yang diberi \"dine_in\": true bisa dine in dan takeaway; toko lain hanya takeaway. Link yang tertulis \"belum ada\" berarti toko itu belum tersedia di aplikasi tersebut (di pop up tampil \"Akan datang\").",
+          "teks_kartu": {
+            "wilayah": { "id": "Sulawesi Selatan", "en": "South Sulawesi" },
+            "jam": { "id": "Buka 24 jam", "en": "Open 24 hours" },
+            "dine_in": { "id": "Dine in", "en": "Dine-in" },
+            "takeaway": { "id": "Takeaway", "en": "Takeaway" },
+            "label_layanan": { "id": "Layanan", "en": "Service" },
+            "tombol": { "id": "Petunjuk arah →", "en": "Directions →" }
+          },
+          "toko": [
+            {
+              "no": "01",
+              "nama": "Agus Salim",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/vVUNe9nskBRWhTmG8",
+                "GoFood": "https://gofood.link/a/R64VS9h",
+                "GrabFood": "https://app.grab.com/s/rzH9Pkgu",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/22545283?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "02",
+              "nama": "Mappaodang",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/Mqfqkc2Cw2VVuV1T9",
+                "GoFood": "https://gofood.link/a/REPsddu",
+                "GrabFood": "https://app.grab.com/s/xmmK4OLl",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/22502275?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "03",
+              "nama": "Goa Ria",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/rqKXXPA9z76T7eo6A",
+                "GoFood": "https://gofood.link/a/RJsrAb1",
+                "GrabFood": "https://app.grab.com/s/3PPnjeZH",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/22528962?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "04",
+              "nama": "Malengkeri",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/9C89FCXC6bZE7Rm76",
+                "GoFood": "https://gofood.link/a/RJssjAG",
+                "GrabFood": "https://app.grab.com/s/5VDPBA36",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/22529125?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "05",
+              "nama": "Tamalate",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/WrAvWGitCp1muV3d9",
+                "GoFood": "https://gofood.link/a/RTzo1Tw",
+                "GrabFood": "https://app.grab.com/s/2Lxbnpoe",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/22529107?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "06",
+              "nama": "Sunu",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/GHfXDkSPAX8Fyj5h9",
+                "GoFood": "https://gofood.link/a/RTzowJ1",
+                "GrabFood": "https://app.grab.com/s/C6pvg49m",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/22543594?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "07",
+              "nama": "Pallangga",
+              "dine_in": true,
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/t2AzQTztdGh4Y6wF9",
+                "GoFood": "https://gofood.link/a/S8cdje3",
+                "GrabFood": "https://app.grab.com/s/5W29Ocfv",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/22557427?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "08",
+              "nama": "Samata",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/LjpRWTVScZ5qVSFv8",
+                "GoFood": "https://gofood.link/a/TaDzoYq",
+                "GrabFood": "https://app.grab.com/s/ug0Ou4Bb",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/22667871?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "09",
+              "nama": "Antang",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/5Hx83hdB5r3r3idc9",
+                "GoFood": "https://gofood.link/a/TaDzfdY",
+                "GrabFood": "https://app.grab.com/s/B8LxZGlI",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/22818495?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "10",
+              "nama": "BTP",
+              "dine_in": true,
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/L96rn2RgNDXkd6aC9",
+                "GoFood": "https://gofood.link/a/TaDvCnw",
+                "GrabFood": "https://app.grab.com/s/QPlmgOMY",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/23159763?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "11",
+              "nama": "Limbung",
+              "ada_di": ["GoFood", "GrabFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/6kbzoyAhz8E65XWWA",
+                "GoFood": "https://gofood.link/a/TwFApK3",
+                "GrabFood": "https://app.grab.com/s/FCsjdvKF",
+                "ShopeeFood": "belum ada"
+              }
+            },
+            {
+              "no": "12",
+              "nama": "Rappocini",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/ked4R3GAJEqjKFCi9",
+                "GoFood": "https://gofood.link/a/TwFA41Y",
+                "GrabFood": "https://app.grab.com/s/JSnvY37d",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/23349574?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "13",
+              "nama": "Gagak",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/1WXDubfnJhPfi3bn8",
+                "GoFood": "https://gofood.link/a/TN2RbWU",
+                "GrabFood": "https://app.grab.com/s/3zjn5Ngw",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/23205967?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "14",
+              "nama": "Aroepala",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/ikHn55N8DTP41wXT9",
+                "GoFood": "https://gofood.link/a/TXARYeo",
+                "GrabFood": "https://app.grab.com/s/6rE4JUro",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/23319060?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "15",
+              "nama": "Tallasalapang",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/UgEHguyvBZD8keQR6",
+                "GoFood": "https://gofood.link/a/TXARZHj",
+                "GrabFood": "https://app.grab.com/s/dgwXw9wb",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/23319516?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "16",
+              "nama": "Urip",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/xhhbZn3bdiSL4jGh8",
+                "GoFood": "https://gofood.link/a/TXARYDS",
+                "GrabFood": "https://app.grab.com/s/XzFoLJeV",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/23319391?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "17",
+              "nama": "Bougenville",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/cT7AfuYnWDr1mhG99",
+                "GoFood": "https://gofood.link/a/UaDnTKo",
+                "GrabFood": "https://app.grab.com/s/FTC54hmz",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/23410424?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "18",
+              "nama": "Yusuf Bauty",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/uqYpRJN7385rHTcQA",
+                "GoFood": "https://gofood.link/a/UaDnVSU",
+                "GrabFood": "https://app.grab.com/s/gCLMwlnl",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/23429835?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "19",
+              "nama": "Paccerakkang",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/aLbn65PgX9LNx5QU9",
+                "GoFood": "https://gofood.link/a/Ut5RrTw",
+                "GrabFood": "https://app.grab.com/s/X7kCDYXi",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/23574451?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "20",
+              "nama": "Pajjaiang",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/xvqHzDTi5XJaQDV2A",
+                "GoFood": "https://gofood.link/a/Ut5RqX3",
+                "GrabFood": "https://app.grab.com/s/pGrSEspZ",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/23574792?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "21",
+              "nama": "Pasar Jongkok",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/pU3Phk3EKZv2LmU49",
+                "GoFood": "https://gofood.link/a/Ut5Rsw1",
+                "GrabFood": "https://app.grab.com/s/xZCh67Gq",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/23590573?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "22",
+              "nama": "Borong",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/a3M4ybMBJVqpvwNG9",
+                "GoFood": "https://gofood.link/a/UdkUkmm",
+                "GrabFood": "https://app.grab.com/s/m0ArEXUG",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/23432852?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "23",
+              "nama": "Poros Malino",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/3cXcxLRjJhFmUt8E9",
+                "GoFood": "https://gofood.link/a/Ut5RrUL",
+                "GrabFood": "https://app.grab.com/s/FzROKYDu",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/23633400?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "24",
+              "nama": "Barombong",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/aZZhDFZqUz1M3BEU6",
+                "GoFood": "https://gofood.link/a/Ut5RteE",
+                "GrabFood": "https://app.grab.com/s/K630wiXL",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/23595806?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "25",
+              "nama": "Takalar",
+              "ada_di": [],
+              "link": {
+                "petunjuk_arah": "https://www.google.com/maps/search/?api=1&query=Kopi%20Padu%20Rasa%20Takalar%20Sulawesi%20Selatan",
+                "catatan_petunjuk_arah": "pencarian Google Maps (link Maps toko ini belum ada)",
+                "GoFood": "belum ada",
+                "GrabFood": "belum ada",
+                "ShopeeFood": "belum ada"
+              }
+            },
+            {
+              "no": "26",
+              "nama": "Pattalassang",
+              "ada_di": ["GoFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/RdpsUJo2NYcHfZM37",
+                "GoFood": "https://gofood.link/a/UKMVy1Y",
+                "GrabFood": "belum ada",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/23895133?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "27",
+              "nama": "Perintis",
+              "ada_di": ["GoFood", "GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/LhsfURhpXszz4We1A",
+                "GoFood": "https://gofood.link/a/Ut5RshU",
+                "GrabFood": "https://app.grab.com/s/gbFMaoP8",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/23624121?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "28",
+              "nama": "Pare-Pare",
+              "ada_di": ["GrabFood", "ShopeeFood"],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/Jj76mbjR4CC32bYS9",
+                "GoFood": "belum ada",
+                "GrabFood": "https://app.grab.com/s/LIvK2Lqz",
+                "ShopeeFood": "https://shopee.co.id/universal-link/now-food/shop/24138391?deep_and_deferred=1"
+              }
+            },
+            {
+              "no": "29",
+              "nama": "Bone",
+              "ada_di": [],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/M4jsWbShokpLQDLr8",
+                "GoFood": "belum ada",
+                "GrabFood": "belum ada",
+                "ShopeeFood": "belum ada"
+              }
+            },
+            {
+              "no": "30",
+              "nama": "Soppeng",
+              "ada_di": [],
+              "link": {
+                "petunjuk_arah": "https://maps.app.goo.gl/oxfYUbkx5WYEmAnD7",
+                "GoFood": "belum ada",
+                "GrabFood": "belum ada",
+                "ShopeeFood": "belum ada"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nama": "Kemitraan",
+      "alamat": "/kemitraan",
+      "judul_tab": { "id": "Kemitraan · Kopi Padu Rasa", "en": "Partnership · Kopi Padu Rasa" },
+      "deskripsi_google": "Alur kemitraan dan keuntungan investasi Kopi Padu Rasa. Info kemitraan: WhatsApp 0851 7704 9460.",
+      "bagian": [
+        {
+          "nama": "Judul halaman",
+          "label_kecil": { "id": "Kemitraan", "en": "Partnership" },
+          "judul": { "id": "Buka toko Kopi Padu Rasa di lokasimu", "en": "Open a Kopi Padu Rasa store in your area" },
+          "tombol": {
+            "teks": "WhatsApp 0851 7704 9460",
+            "link": "https://wa.me/6285177049460?text=Halo%20Kopi%20Padu%20Rasa%2C%20saya%20tertarik%20dengan%20program%20kemitraan."
+          },
+          "pesan_whatsapp": "Halo Kopi Padu Rasa, saya tertarik dengan program kemitraan."
+        },
+        {
+          "nama": "Keuntungan Investasi",
+          "judul": { "id": "Keuntungan Investasi", "en": "Investment Benefits" },
+          "poin": [
+            { "id": "Brand & Sistem Bisnis yang Sudah Teruji", "en": "A Proven Brand & Business System" },
+            { "id": "Pendampingan dari Awal hingga Operasional", "en": "Support from Day One to Daily Operations" },
+            { "id": "Peluang Bisnis yang Terukur & Berkelanjutan", "en": "A Measurable & Sustainable Business Opportunity" }
+          ]
+        },
+        {
+          "nama": "Alur Kemitraan",
+          "judul": { "id": "Alur Kemitraan", "en": "Partnership Steps" },
+          "langkah": [
+            { "no": 1, "id": "Konsultasi Kemitraan", "en": "Partnership Consultation" },
+            { "no": 2, "id": "Pengajuan Kuota Investasi", "en": "Investment Quota Application" },
+            { "no": 3, "id": "Pembayaran Uang Muka", "en": "Down Payment" },
+            { "no": 4, "id": "Survei Lokasi", "en": "Site Survey" },
+            { "no": 5, "id": "Penandatanganan Akad", "en": "Contract Signing" },
+            { "no": 6, "id": "Pembayaran Tahap 1 – Pembangunan Toko", "en": "Payment Stage 1 – Store Construction" },
+            { "no": 7, "id": "Pembayaran Tahap 2 – Progres 50%", "en": "Payment Stage 2 – 50% Completion" },
+            { "no": 8, "id": "Pembayaran Tahap 3 – Pelunasan", "en": "Payment Stage 3 – Final Payment" },
+            { "no": 9, "id": "Toko Siap Beroperasi", "en": "Store Ready to Operate" }
+          ]
+        }
+      ]
+    },
+    {
+      "nama": "Karir",
+      "alamat": "/karir",
+      "judul_tab": { "id": "Karir · Kopi Padu Rasa", "en": "Careers · Kopi Padu Rasa" },
+      "deskripsi_google": "Karir di Kopi Padu Rasa: kesempatan bertumbuh bagi siapa pun yang mau belajar dan berkembang, termasuk yang baru memulai perjalanan karier.",
+      "bagian": [
+        {
+          "nama": "Judul halaman",
+          "label_kecil": { "id": "Karir", "en": "Careers" },
+          "judul": { "id": "Setiap perjalanan memiliki titik awal.", "en": "Every journey has a starting point." },
+          "teks": [
+            {
+              "id": "Di Kopi Padu Rasa, kami percaya bahwa kemampuan tidak hanya dibentuk dari pengalaman, tetapi juga dari kemauan untuk belajar, berkembang, dan memberikan yang terbaik.",
+              "en": "At Kopi Padu Rasa, we believe ability is shaped not only by experience, but also by the willingness to learn, grow, and give your best."
+            },
+            {
+              "id": "Kami membuka kesempatan bagi siapa pun yang ingin bertumbuh bersama kami. Baik kamu sedang memulai perjalanan karier, mencari pengalaman pertama, maupun ingin melanjutkan pengalaman yang telah dimiliki, selalu ada ruang untuk belajar dan berkembang di Kopi Padu Rasa.",
+              "en": "We open opportunities for anyone who wants to grow with us. Whether you're just starting your career, looking for your first experience, or ready to build on the experience you already have, there's always room to learn and grow at Kopi Padu Rasa."
+            }
+          ],
+          "tombol": {
+            "teks": "WhatsApp 0823 4614 5331",
+            "link": "https://wa.me/6282346145331?text=Halo%20Kopi%20Padu%20Rasa%2C%20saya%20ingin%20melamar%20pekerjaan."
+          },
+          "pesan_whatsapp": "Halo Kopi Padu Rasa, saya ingin melamar pekerjaan.",
+          "gambar_jalan": {
+            "keterangan": "Gambar jalan berkelok dari titik awal ke logo Kopi Padu Rasa.",
+            "label": [
+              { "id": "Titik awal", "en": "Starting point" },
+              { "no": 1, "id": "Belajar", "en": "Learn" },
+              { "no": 2, "id": "Bersama", "en": "Together" },
+              { "no": 3, "id": "Berdampak", "en": "Impact" }
+            ]
+          }
+        },
+        {
+          "nama": "Bertumbuh Bersama",
+          "judul": { "id": "Bertumbuh Bersama, Memberikan Dampak Bersama", "en": "Growing Together, Making an Impact Together" },
+          "teks": [
+            {
+              "id": "Kopi Padu Rasa terus berkembang bersama orang-orang yang ada di dalamnya.",
+              "en": "Kopi Padu Rasa keeps growing together with the people in it."
+            },
+            {
+              "id": "Kami percaya bahwa setiap individu memiliki potensi yang dapat berkembang ketika diberikan kesempatan, lingkungan yang mendukung, serta ruang untuk mencoba dan belajar.",
+              "en": "We believe every individual has potential that can grow when given the opportunity, a supportive environment, and room to try and learn."
+            },
+            {
+              "id": "Karena itu, kami tidak hanya mencari seseorang yang sudah memiliki pengalaman panjang. Kami juga mencari individu yang memiliki rasa ingin tahu, semangat belajar, tanggung jawab, dan kemauan untuk terus berkembang.",
+              "en": "That's why we're not only looking for people with long experience. We're also looking for individuals with curiosity, eagerness to learn, responsibility, and the will to keep growing."
+            }
+          ],
+          "kutipan": {
+            "id": "Bagi kami, perjalanan karier bukan hanya tentang apa yang sudah kamu kuasai hari ini, tetapi juga tentang sejauh mana kamu ingin berkembang ke depannya.",
+            "en": "For us, a career journey isn't only about what you've mastered today, but also about how far you want to grow from here."
+          }
+        },
+        {
+          "nama": "Belajar · Bersama · Berdampak",
+          "judul_tersembunyi_untuk_google": { "id": "Bekerja di Kopi Padu Rasa", "en": "Working at Kopi Padu Rasa" },
+          "kartu": [
+            {
+              "no": 1,
+              "label": { "id": "Belajar", "en": "Learn" },
+              "judul": {
+                "id": "Tidak semua orang memulai perjalanan karier dengan pengalaman.",
+                "en": "Not everyone starts their career with experience."
+              },
+              "teks": [
+                {
+                  "id": "Di Kopi Padu Rasa, kamu akan memiliki kesempatan untuk mempelajari hal baru, memahami proses kerja, mengembangkan kemampuan, serta mendapatkan pengalaman secara langsung melalui pekerjaan sehari-hari.",
+                  "en": "At Kopi Padu Rasa, you'll have the chance to learn new things, understand how the work gets done, develop your skills, and gain hands-on experience through everyday work."
+                },
+                {
+                  "id": "Kami ingin setiap anggota tim dapat terus meningkatkan kemampuan dan mengambil tanggung jawab yang lebih besar seiring dengan perkembangan mereka.",
+                  "en": "We want every team member to keep improving their skills and take on greater responsibility as they grow."
+                },
+                {
+                  "id": "Setiap proses, tantangan, dan pengalaman menjadi bagian dari perjalanan untuk menjadi lebih baik.",
+                  "en": "Every process, challenge, and experience is part of the journey to becoming better."
+                }
+              ]
+            },
+            {
+              "no": 2,
+              "label": { "id": "Bersama", "en": "Together" },
+              "judul": {
+                "id": "Kami percaya bahwa hasil terbaik lahir dari kerja sama.",
+                "en": "We believe the best results come from working together."
+              },
+              "teks": [
+                {
+                  "id": "Di sini, setiap orang memiliki peran untuk saling membantu, bertukar gagasan, belajar dari satu sama lain, dan bergerak menuju tujuan yang sama.",
+                  "en": "Here, everyone has a role in helping one another, exchanging ideas, learning from each other, and moving toward the same goal."
+                }
+              ]
+            },
+            {
+              "no": 3,
+              "label": { "id": "Berdampak", "en": "Impact" },
+              "judul": { "id": "Setiap pekerjaan memiliki dampak.", "en": "Every job makes an impact." },
+              "teks": [
+                {
+                  "id": "Baik kamu bekerja di toko, kantor, operasional, kreatif, pemasaran, maupun bagian lainnya, kontribusimu menjadi bagian dari pengalaman yang diterima oleh setiap Kawan Padu.",
+                  "en": "Whether you work in our stores, the office, operations, creative, marketing, or any other team, your contribution becomes part of the experience every Kawan Padu receives."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nama": "Penutup",
+          "judul": { "id": "Setiap orang pernah berada di titik awal.", "en": "Everyone has been at the starting point." },
+          "teks": [
+            {
+              "id": "Untuk beberapa posisi, pengalaman kerja bukan menjadi syarat utama. Kami lebih menghargai kemauan untuk belajar, kedisiplinan, tanggung jawab, kemampuan bekerja sama, dan komitmen untuk berkembang.",
+              "en": "For some positions, work experience isn't the main requirement. We value the willingness to learn, discipline, responsibility, teamwork, and a commitment to growth."
+            },
+            {
+              "id": "Jika kamu belum memiliki pengalaman tetapi memiliki semangat untuk belajar dan siap menjalani proses, kami tetap ingin mengenalmu.",
+              "en": "If you don't have experience yet but you're eager to learn and ready for the process, we'd still love to get to know you."
+            },
+            {
+              "id": "Karena pengalaman dapat dibangun, dan kemampuan dapat terus dikembangkan.",
+              "en": "Because experience can be built, and skills can keep growing."
+            }
+          ],
+          "kalimat_akhir": {
+            "id": "Yang terpenting adalah kemauan untuk memulai.",
+            "en": "What matters most is the willingness to start."
+          },
+          "tombol": {
+            "teks": "WhatsApp 0823 4614 5331",
+            "link": "https://wa.me/6282346145331?text=Halo%20Kopi%20Padu%20Rasa%2C%20saya%20ingin%20melamar%20pekerjaan."
+          }
+        }
+      ]
+    },
+    {
+      "nama": "Kontak",
+      "alamat": "/kontak",
+      "status": "nonaktif (dialihkan ke Beranda)",
+      "judul_tab": { "id": "Kontak · Kopi Padu Rasa", "en": "Contact · Kopi Padu Rasa" },
+      "deskripsi_google": "[belum diisi]",
+      "bagian": [
+        {
+          "nama": "Judul halaman",
+          "label_kecil": { "id": "Kontak", "en": "Contact" },
+          "judul": { "id": "Ngobrol dengan kami", "en": "Talk to us" },
+          "teks": {
+            "id": "[Untuk pertanyaan umum, kerja sama, atau masukan.]",
+            "en": "[For general questions, collaborations or feedback.]"
+          }
+        },
+        {
+          "nama": "Kanal kontak",
+          "kartu": [
+            { "label": "WhatsApp", "isi": "0821-8717-165", "link": "https://wa.me/628218717165" },
+            {
+              "label": "Email",
+              "isi": "[email@domain.com]",
+              "link": "mailto:email@domain.com",
+              "catatan": "placeholder, email belum diisi"
+            },
+            { "label": "Instagram", "isi": "@kopipadurasa", "link": "https://www.instagram.com/kopipadurasa/" },
+            {
+              "label": { "id": "Kantor pusat", "en": "Head office" },
+              "isi": "[Alamat kantor pusat]",
+              "link": "tidak ada (teks saja)"
+            }
+          ],
+          "peta": "[Peta kantor pusat (embed Google Maps) belum dipasang]"
+        }
+      ]
+    },
+    {
+      "nama": "Tentang",
+      "alamat": "/tentang",
+      "status": "nonaktif (dialihkan ke Beranda)",
+      "judul_tab": { "id": "Tentang Kami · Kopi Padu Rasa", "en": "About Us · Kopi Padu Rasa" },
+      "deskripsi_google": "[belum diisi]",
+      "bagian": [
+        {
+          "nama": "Judul halaman",
+          "label_kecil": { "id": "Tentang Kami", "en": "About Us" },
+          "judul": { "id": "[Kenapa Kopi Padu Rasa ada]", "en": "[Why Kopi Padu Rasa exists]" },
+          "teks": { "id": "[Satu kalimat misi atau keyakinan brand.]", "en": "[One sentence on the brand's mission or belief.]" }
+        },
+        {
+          "nama": "Cerita kami",
+          "judul": { "id": "Cerita kami", "en": "Our story" },
+          "teks": [
+            {
+              "id": "[Siapa pendirinya, kapan dan di mana mulai, masalah apa yang ingin diselesaikan.]",
+              "en": "[Who founded it, when and where it started, what problem it set out to solve.]"
+            },
+            {
+              "id": "[Prinsip yang dipegang, mis. soal biji kopi, rasa, dan kecepatan penyajian.]",
+              "en": "[Principles, e.g. about beans, taste and speed of service.]"
+            }
+          ],
+          "foto": "[Foto tim / barista / toko pertama, 1200 × 1500 px]"
+        },
+        {
+          "nama": "Perjalanan kami",
+          "judul": { "id": "Perjalanan kami", "en": "Our journey" },
+          "linimasa": [
+            {
+              "tahun": "[20XX]",
+              "judul": { "id": "Toko pertama", "en": "Our first store" },
+              "teks": { "id": "[Cerita awal berdiri]", "en": "[How it all began]" }
+            },
+            {
+              "tahun": "[20XX]",
+              "judul": { "id": "[Momen penting]", "en": "[Milestone]" },
+              "teks": { "id": "[Keterangan singkat]", "en": "[Short description]" }
+            },
+            {
+              "tahun": "[20XX]",
+              "judul": { "id": "[Momen penting]", "en": "[Milestone]" },
+              "teks": { "id": "[Keterangan singkat]", "en": "[Short description]" }
+            },
+            {
+              "tahun": { "id": "Hari ini", "en": "Today" },
+              "judul": { "id": "30 toko", "en": "30 stores" },
+              "teks": { "id": "[Tersebar di kota mana saja]", "en": "[Which cities we serve]" }
+            }
+          ]
+        },
+        {
+          "nama": "Yang kami pegang",
+          "judul": { "id": "Yang kami pegang", "en": "What we stand for" },
+          "nilai": [
+            {
+              "judul": { "id": "[Nilai 1]", "en": "[Value 1]" },
+              "teks": { "id": "[Penjelasan singkat]", "en": "[Short explanation]" }
+            },
+            {
+              "judul": { "id": "[Nilai 2]", "en": "[Value 2]" },
+              "teks": { "id": "[Penjelasan singkat]", "en": "[Short explanation]" }
+            },
+            {
+              "judul": { "id": "[Nilai 3]", "en": "[Value 3]" },
+              "teks": { "id": "[Penjelasan singkat]", "en": "[Short explanation]" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

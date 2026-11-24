@@ -1,51 +1,59 @@
 'use client';
-/* LOKASI: 30 kartu toko + pop-up foto toko ukuran utuh.
-   Pop-up foto (GSAP):
-   - buka: klik foto di kartu -> foto membesar dari posisinya di kartu ke tengah layar sambil membuka
-     bagian yang terpotong (clip-path), latar gelap memudar masuk
-   - tutup: klik di mana saja atau Esc -> foto kembali mengecil tepat ke potongan di kartu */
 import { useRef } from 'react';
-import { CARD_APPS, POP, STORE_PART, STORES, STORE_PHOTO, onApp } from '@/lib/data';
+import { CARD_APPS, POP, STORE_PART, STORES, onApp, page, part } from '@/lib/data';
 import { gsap, motionOK, useGSAP } from '@/lib/gsap';
 import { IconBag, IconDine, IconPin } from '../icons';
-import { T, useDocTitle, useLang } from '../lang';
+import { useDocTitle, useLang } from '../lang';
 import { useReveal } from '../reveal';
 
 const ZOOM_IN = { duration: 0.5, ease: 'power3.out' };
 const ZOOM_OUT = { duration: 0.42, ease: 'power3.inOut' };
 
-/* posisi foto pop-up saat "masih di kartu": diperkecil & dipotong supaya pas menutupi foto kartu */
 function photoFrame(btn, img) {
   const c = btn.getBoundingClientRect();
   const f = img.getBoundingClientRect();
-  const s = c.width / f.width;
-  const cropH = Math.min(f.height, (f.width * c.height) / c.width); // tinggi potongan kartu dalam ukuran foto pop-up
-  const top = (f.height - cropH) * parseFloat(btn.dataset.photoPos || '.5');
-  const bottom = f.height - cropH - top;
-  return { x: c.left - f.left, y: c.top - f.top - top * s, scale: s, clipPath: `inset(${top}px 0px ${bottom}px 0px)` };
+  const pos = parseFloat(btn.dataset.photoPos || '.5');
+  if (c.width / c.height >= f.width / f.height) {
+    const s = c.width / f.width;
+    const cropH = (f.width * c.height) / c.width;
+    const top = (f.height - cropH) * pos;
+    const bottom = f.height - cropH - top;
+    return { x: c.left - f.left, y: c.top - f.top - top * s, scale: s, clipPath: `inset(${top}px 0px ${bottom}px 0px)` };
+  }
+  const s = c.height / f.height;
+  const cropW = (f.height * c.width) / c.height;
+  const left = (f.width - cropW) * pos;
+  const right = f.width - cropW - left;
+  return { x: c.left - f.left - left * s, y: c.top - f.top, scale: s, clipPath: `inset(0px ${right}px 0px ${left}px)` };
 }
 const FULL = { x: 0, y: 0, scale: 1, clipPath: 'inset(0px 0px 0px 0px)' };
 
-/* foto toko di kartu sementara dinonaktifkan; ubah ke true untuk menampilkannya lagi
-   (kode foto kartu + pop-up tetap utuh, data di STORE_PHOTO tidak diubah) */
-const SHOW_STORE_PHOTOS = false;
+const SHOW_STORE_PHOTOS = true;
+const LOGO_FOR_NO_PHOTO = true;
+const TAB = page('Lokasi').judul_tab;
+const HEAD = part('Lokasi', 'Judul halaman');
 
-function StoreCard({ s }) {
+function StoreCard({ s, first }) {
   const { t, L } = useLang();
   const tk = STORE_PART.teks_kartu;
-  const photo = SHOW_STORE_PHOTOS ? STORE_PHOTO[s.nama] : null;
+  const photo = SHOW_STORE_PHOTOS ? s.foto : null;
   const alt = L('Toko Kopi Padu Rasa ' + s.nama, 'Kopi Padu Rasa ' + s.nama + ' store');
-  const rasio = photo?.rasio || [4, 3];
   return (
     <article className={'store' + (photo ? ' store--photo' : '')} data-reveal>
       {photo && (
-        <button type="button" className="store__photo" data-photo={`/img/toko/${photo.file}-full.webp`} data-photo-alt={alt}
-          data-photo-pos={photo.posisi ?? 0.5} aria-label={L('Lihat foto utuh toko ' + s.nama, 'View full photo of the ' + s.nama + ' store')}>
-          <img src={`/img/toko/${photo.file}-600.webp`}
-            srcSet={`/img/toko/${photo.file}-600.webp 600w, /img/toko/${photo.file}-900.webp 900w`}
-            sizes="(max-width: 640px) calc(100vw - 32px), 300px" width="600" height={Math.round((600 * rasio[1]) / rasio[0])}
-            loading="lazy" decoding="async" alt={alt} />
+        <button type="button" className="store__photo" data-photo={`/img/toko/${photo}-full.webp`} data-photo-alt={alt}
+          data-photo-pos={s.posisi_foto ?? 0.5} aria-label={L('Lihat foto utuh toko ' + s.nama, 'View full photo of the ' + s.nama + ' store')}>
+          <img src={`/img/toko/${photo}-600.webp`}
+            srcSet={`/img/toko/${photo}-600.webp 600w, /img/toko/${photo}-900.webp 900w`}
+            sizes="(max-width: 640px) calc(100vw - 32px), 300px" width="600" height="600"
+            loading={first ? undefined : 'lazy'} fetchPriority={first ? 'high' : undefined} decoding="async" alt={alt} />
         </button>
+      )}
+      {!photo && SHOW_STORE_PHOTOS && LOGO_FOR_NO_PHOTO && (
+        <div className="store__photo store__photo--logo" aria-hidden="true">
+          <img src="/img/toko/logo-600.webp" srcSet="/img/toko/logo-600.webp 600w, /img/toko/logo-900.webp 900w"
+            sizes="(max-width: 640px) calc(100vw - 32px), 300px" width="600" height="600" loading="lazy" decoding="async" alt="" />
+        </div>
       )}
       <div className="store__top">
         <span className="store__no">{s.no}</span>
@@ -53,7 +61,6 @@ function StoreCard({ s }) {
       </div>
       <h3 className="store__name">{s.nama}</h3>
       <p className="store__region">{t(tk.wilayah)}</p>
-      {/* layanan: toko bertanda dine_in di JSON bisa dine in + takeaway, lainnya hanya takeaway */}
       <ul className="store__svc" aria-label={t(tk.label_layanan)}>
         {s.dine_in && <li className="svc svc--dine"><IconDine />{t(tk.dine_in)}</li>}
         <li className="svc"><IconBag />{t(tk.takeaway)}</li>
@@ -104,10 +111,10 @@ function usePhotoLightbox(gridRef, dlgRef) {
       gsap.set(img, { visibility: 'hidden' });
       img.src = b.dataset.photo;
       if (!dlg.open) dlg.showModal();
-      try { await img.decode(); } catch { /* ditangani di bawah */ }
+      try { await img.decode(); } catch {}
       requestAnimationFrame(() => requestAnimationFrame(() => {
         if (!dlg.open) return;
-        if (!img.naturalWidth) { dlg.close(); return; } // foto gagal dimuat
+        if (!img.naturalWidth) { dlg.close(); return; }
         const from = photoFrame(b, img);
         b.classList.add('is-zoomed');
         dlg.classList.add('is-shown');
@@ -129,7 +136,6 @@ function usePhotoLightbox(gridRef, dlgRef) {
     });
 
     const onGridClick = (e) => { const b = e.target.closest('[data-photo]'); if (b) open(b); };
-    /* foto utuh mulai diunduh saat foto kartu disentuh/didekati kursor, jadi pop-up langsung siap */
     const preloaded = new Set();
     const preload = (e) => {
       const src = e.target.closest('[data-photo]')?.dataset.photo;
@@ -142,7 +148,7 @@ function usePhotoLightbox(gridRef, dlgRef) {
     grid.addEventListener('focusin', preload);
     dlg.addEventListener('click', close);
     dlg.addEventListener('cancel', onCancel);
-    dlg.addEventListener('close', cleanup); // dibersihkan juga bila browser menutup paksa
+    dlg.addEventListener('close', cleanup);
     return () => {
       grid.removeEventListener('click', onGridClick);
       grid.removeEventListener('pointerover', preload);
@@ -161,26 +167,24 @@ export default function LokasiPage() {
   const dlgRef = useRef(null);
   useReveal(ref);
   usePhotoLightbox(gridRef, dlgRef);
-  useDocTitle('Lokasi 30 Toko · Kopi Padu Rasa', '30 Store Locations · Kopi Padu Rasa');
+  const { t } = useLang();
+  useDocTitle(TAB.id, TAB.en);
 
   return (
     <main id="konten" ref={ref}>
       <section className="page-hero page-hero--center" aria-labelledby="lokasiTitle">
         <div className="container">
-          <p className="kicker"><T id="Lokasi" en="Locations" /></p>
-          <h1 className="page-title" id="lokasiTitle"><T id="30 toko, cari yang paling dekat" en="30 stores: find the nearest" /></h1>
-          <p className="page-lead">
-            <T id="Semua toko buka 24 jam. Cek petunjuk arah, atau langsung pesan dari toko pilihanmu di GoFood, GrabFood, dan ShopeeFood."
-              en="Every store is open 24 hours. Get directions, or order straight from the store you pick on GoFood, GrabFood, or ShopeeFood." />
-          </p>
+          <p className="kicker">{t(HEAD.label_kecil)}</p>
+          <h1 className="page-title" id="lokasiTitle">{t(HEAD.judul)}</h1>
+          <p className="page-lead">{t(HEAD.teks)}</p>
         </div>
       </section>
 
       <section className="section" aria-labelledby="storesTitle">
         <div className="container">
-          <h2 className="h3 stores__title" id="storesTitle"><T id="Semua toko" en="All stores" /></h2>
+          <h2 className="h3 stores__title" id="storesTitle">{t(STORE_PART.judul)}</h2>
           <div className="store-grid" ref={gridRef}>
-            {STORES.map((s) => <StoreCard key={s.no} s={s} />)}
+            {STORES.map((s, i) => <StoreCard key={s.no} s={s} first={i === 0} />)}
           </div>
         </div>
       </section>

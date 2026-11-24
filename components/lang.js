@@ -1,9 +1,4 @@
 'use client';
-/* BAHASA (Indonesia / English)
-   - Halaman dibuat dalam bahasa Indonesia. Skrip kecil di <head> (lihat app/layout.js) menandai
-     <html data-lang="en"> sebelum halaman tampil bila pengunjung memilih English (?lang=en atau
-     pilihan tersimpan), lalu di sini teksnya diganti sebelum layar digambar.
-   - Teks statis: <T id="..." en="..." />. Teks dari JSON: t({ id, en }). Atribut: L('id', 'en'). */
 import { createContext, useCallback, useContext, useLayoutEffect, useMemo, useState } from 'react';
 
 const KEY = 'kpr-lang';
@@ -23,7 +18,6 @@ function readPreferred() {
 export function LangProvider({ children }) {
   const [lang, setLangState] = useState('id');
 
-  /* sebelum layar pertama digambar: pakai bahasa pilihan pengunjung */
   useLayoutEffect(() => {
     const l = readPreferred();
     setLangState(l);
@@ -38,7 +32,7 @@ export function LangProvider({ children }) {
     const root = document.documentElement;
     root.setAttribute('data-lang', l);
     root.lang = l;
-    try { localStorage.setItem(KEY, l); } catch { /* mode privat */ }
+    try { localStorage.setItem(KEY, l); } catch {}
   }, []);
 
   const value = useMemo(() => ({
@@ -55,13 +49,11 @@ export function useLang() {
   return useContext(LangCtx);
 }
 
-/* <T id="Beranda" en="Home" /> */
 export function T({ id, en }) {
   const { lang } = useLang();
   return <>{lang === 'en' ? en : id}</>;
 }
 
-/* judul tab browser ikut bahasa */
 export function useDocTitle(id, en) {
   const { lang } = useLang();
   useLayoutEffect(() => { document.title = lang === 'en' ? en : id; }, [lang, id, en]);

@@ -1,10 +1,8 @@
 'use client';
-/* DIALOG BERSAMA: menu ponsel (drawer), pop-up "Mau pesan lewat mana?", dan pop-up "Pilih toko".
-   Semua dibuka/ditutup lewat useUI(), dengan animasi GSAP. */
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { APPS, COMMON, ORDER_APPS, POP, STORES, countOn, href, onApp } from '@/lib/data';
+import { APPS, COMMON, NAV, ORDER_APPS, POP, STORES, countOn, href, onApp } from '@/lib/data';
 import { gsap, motionOK } from '@/lib/gsap';
 import { IconBag, IconClose, IconGlobe, IconWa } from './icons';
 import { T, useLang } from './lang';
@@ -16,7 +14,7 @@ function storage(k, v) {
   try {
     if (v === undefined) return localStorage.getItem(k);
     localStorage.setItem(k, v);
-  } catch { /* mode privat */ }
+  } catch {}
   return null;
 }
 const nextFrame = (fn) => requestAnimationFrame(() => requestAnimationFrame(fn));
@@ -35,7 +33,6 @@ export function UIProvider({ children }) {
     setStoreApp(app);
   }, []);
 
-  /* buka pop-up toko langsung lewat alamat, mis. /menu/?pesan=GoFood */
   useEffect(() => {
     const want = new URLSearchParams(location.search).get('pesan');
     if (ORDER_APPS.includes(want)) openStores(want);
@@ -56,7 +53,6 @@ export function UIProvider({ children }) {
   );
 }
 
-/* ---------- pop-up dasar: kartu naik + memudar, latar gelap memudar (CSS) ---------- */
 function Modal({ open, onClose, className = '', labelledBy, onOpen, children }) {
   const ref = useRef(null);
   const onCloseRef = useRef(onClose);
@@ -66,8 +62,8 @@ function Modal({ open, onClose, className = '', labelledBy, onOpen, children }) 
 
   useEffect(() => {
     const dlg = ref.current;
-    const onCancel = (e) => { e.preventDefault(); onCloseRef.current(); }; // Esc
-    const onClick = (e) => { if (e.target === dlg) onCloseRef.current(); }; // klik di luar kartu
+    const onCancel = (e) => { e.preventDefault(); onCloseRef.current(); };
+    const onClick = (e) => { if (e.target === dlg) onCloseRef.current(); };
     const onNativeClose = () => { if (openRef.current) onCloseRef.current(); };
     dlg.addEventListener('cancel', onCancel);
     dlg.addEventListener('click', onClick);
@@ -98,7 +94,7 @@ function Modal({ open, onClose, className = '', labelledBy, onOpen, children }) 
         onComplete: () => { dlg.close(); gsap.set(card, { clearProps: 'opacity,transform' }); },
       });
     }
-  }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [open]);
 
   return (
     <dialog ref={ref} className={'modal ' + className} aria-labelledby={labelledBy}>
@@ -107,7 +103,6 @@ function Modal({ open, onClose, className = '', labelledBy, onOpen, children }) 
   );
 }
 
-/* ---------- tombol aplikasi (GoFood, GrabFood, ShopeeFood, WhatsApp) ---------- */
 export function AppGrid() {
   const { t, L } = useLang();
   const { openStores } = useUI();
@@ -158,10 +153,9 @@ function OrderDialog({ open, onClose }) {
   );
 }
 
-/* ---------- pop-up pilih toko: toko terakhir dipakai tampil paling atas ---------- */
 function StoreDialog({ app, onClose }) {
   const { t, L } = useLang();
-  const [shownApp, setShownApp] = useState(null); // tetap tampil saat animasi tutup
+  const [shownApp, setShownApp] = useState(null);
   const [last, setLast] = useState(null);
   const listRef = useRef(null);
   if (app && app !== shownApp) setShownApp(app);
@@ -212,9 +206,6 @@ function StoreDialog({ app, onClose }) {
   );
 }
 
-/* ---------- menu ponsel/tablet (layar penuh) ----------
-   Buka: panel memudar masuk, baris menu naik satu per satu. Tutup: memudar keluar.
-   Pindah halaman atau melebar ke desktop: langsung tertutup tanpa animasi. */
 function Drawer({ state, onClose }) {
   const ref = useRef(null);
   const pathname = usePathname();
@@ -265,7 +256,7 @@ function Drawer({ state, onClose }) {
     <dialog ref={ref} className="drawer" id="drawer" aria-label="Menu">
       <div className="container drawer__bar">
         <Link className="brand brand--wide" href={href(m.logo_link)}>
-          <img className="brand__mark" src="/img/logo-mark.svg" alt="" width="42" height="42" />
+          <img className="brand__mark" src="/img/logo-mark-light.svg" alt="" width="42" height="42" />
           <span className="brand__word">Kopi Padu Rasa</span>
         </Link>
         <button type="button" className="burger" autoFocus aria-label={t(m.tombol_tutup)} onClick={() => onClose()}>
@@ -275,7 +266,7 @@ function Drawer({ state, onClose }) {
       <div className="drawer__body">
         <nav aria-label={L('Navigasi utama', 'Main navigation')}>
           <ul className="drawer__nav">
-            {m.daftar_menu.map((n) => {
+            {NAV.map((n) => {
               const to = href(n.link);
               return (
                 <li key={n.link}>

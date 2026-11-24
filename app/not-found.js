@@ -1,5 +1,3 @@
-/* Halaman 404: dibuka bila alamat tidak ada (hasil build: out/404.html).
-   Tampil di dalam kerangka situs (header & footer dari layout.js). */
 import Link from 'next/link';
 import { T } from '@/components/lang';
 

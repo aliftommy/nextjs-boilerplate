@@ -1,24 +1,23 @@
 'use client';
-/* KARTU PRODUK (Beranda & Menu)
-   - kind "size": dua harga (Normal/Besar). Kartu atau tombol ukuran ditekan -> foto berganti ukuran
-     (transisi CSS) dan "membal" sedikit (GSAP).
-   - kind "hot" / "liter" / "plain": satu harga. */
 import { useRef, useState } from 'react';
-import { MENU, SLUG } from '@/lib/data';
+import { MENU } from '@/lib/data';
 import { gsap, motionOK } from '@/lib/gsap';
 import { IconSwap, Tofu } from './icons';
 import { useLang } from './lang';
 
 const SIZES = ['Normal', 'Besar'];
+const img = (file) => '/img/produk/' + file + '.webp';
+const fotoOf = (p, size) => (p.foto && typeof p.foto === 'object' ? p.foto[size] : p.foto);
 
-export default function ProductCard({ p, kind, showFav }) {
+export default function ProductCard({ p, priceLabel, showFav }) {
   const { t, L } = useLang();
-  const slug = SLUG[p.nama];
-  const base = '/img/produk/' + slug;
   const [size, setSize] = useState('Normal');
   const photoRef = useRef(null);
+  const tofu = <Tofu label={L('Ilustrasi ' + p.nama, p.nama + ' illustration')} />;
 
-  if (kind === 'size') {
+  if (p.harga && typeof p.harga === 'object') {
+    const fotoN = fotoOf(p, 'Normal');
+    const fotoB = fotoOf(p, 'Besar') || fotoN;
     const big = size === 'Besar';
     const label = (k) => t(MENU.label_ukuran[k]);
     const choose = (k) => {
@@ -31,8 +30,12 @@ export default function ProductCard({ p, kind, showFav }) {
       <article className="pcard pcard--size" data-size={size} data-reveal
         onClick={(e) => { if (!e.target.closest('.size-toggle button')) choose(big ? 'Normal' : 'Besar'); }}>
         <button type="button" className="pcard__photo" ref={photoRef} aria-label={L('Ganti ukuran ' + p.nama, 'Switch size of ' + p.nama)}>
-          <img className="pcard__img pcard__img--n" src={base + '.webp'} alt={big ? '' : `${p.nama}, ${label('Normal')}`} width="640" height="640" loading="lazy" decoding="async" />
-          <img className="pcard__img pcard__img--b" src={base + '-besar.webp'} alt={big ? `${p.nama}, ${label('Besar')}` : ''} width="640" height="640" loading="lazy" decoding="async" />
+          {fotoN ? (
+            <>
+              <img className="pcard__img pcard__img--n" src={img(fotoN)} alt={big ? '' : `${p.nama}, ${label('Normal')}`} width="640" height="640" loading="lazy" decoding="async" />
+              <img className="pcard__img pcard__img--b" src={img(fotoB)} alt={big ? `${p.nama}, ${label('Besar')}` : ''} width="640" height="640" loading="lazy" decoding="async" />
+            </>
+          ) : tofu}
           {showFav && p.favorit && <span className="pcard__fav">{t(MENU.label_favorit)}</span>}
           <span className="pcard__swap" aria-hidden="true"><IconSwap /></span>
         </button>
@@ -51,17 +54,17 @@ export default function ProductCard({ p, kind, showFav }) {
     );
   }
 
-  const m = /^(.*?)\s*(Rp.*)$/.exec(p.harga);
-  const label = m && m[1] ? m[1] : kind === 'hot' ? L('Panas', 'Hot') : '';
+  const m = /^(.*?)\s*(Rp.*)$/.exec(p.harga || '');
+  const label = m && m[1] ? m[1] : priceLabel || '';
   const price = m ? m[2] : p.harga;
-  const suffix = kind === 'hot' ? '-hangat' : kind === 'liter' ? '-1l' : '';
-  const alt = p.nama + (kind === 'hot' ? L(' hangat', ' (hot)') : kind === 'liter' ? ' 1 liter' : '');
+  const foto = fotoOf(p, 'Normal');
+  const alt = p.nama + (label ? ', ' + label : '');
   return (
     <article className="pcard pcard--single" data-reveal>
       <div className="pcard__photo">
-        {slug
-          ? <img className="pcard__img" src={base + suffix + '.webp'} alt={alt} width="640" height="640" loading="lazy" decoding="async" />
-          : <Tofu label={L('Ilustrasi ' + p.nama, p.nama + ' illustration')} />}
+        {foto
+          ? <img className="pcard__img" src={img(foto)} alt={alt} width="640" height="640" loading="lazy" decoding="async" />
+          : tofu}
       </div>
       <div className="pcard__body">
         <h3 className="pcard__name">{p.nama}</h3>

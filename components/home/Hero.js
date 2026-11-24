@@ -1,15 +1,7 @@
 'use client';
-/* BERANDA · HERO: panggung kota + rak stiker produk
-   GSAP:
-   - tirai pembuka (hanya saat Beranda dibuka langsung, pertama kali per sesi): logo tergores di layar
-     krem (CSS), lalu memudar begitu font & foto latar siap; header turun masuk
-   - intro (kunjungan pertama ke Beranda per sesi): tulisan hero naik masuk berurutan, latar zoom keluar, garis bawah judul tergores,
-     stiker "ditempel" satu per satu (debu + guncangan kecil), badge & label muncul, tulisan label
-     tergores, panah label tergambar
-   - setelah itu stiker "bernapas" pelan tidak serempak, awan bergeser, uap kopi panas naik
-   - parallax mengikuti kursor (hanya mouse) */
 import Link from 'next/link';
 import { useRef } from 'react';
+import { STORE_COUNT } from '@/lib/data';
 import { gsap, motionOK, useGSAP } from '@/lib/gsap';
 import { T, useLang } from '../lang';
 
@@ -46,35 +38,30 @@ const STICKERS = [
 ];
 const CLOUD_SECONDS = [70, 95, 120];
 
-/* logo Kopi Padu Rasa (sama dengan public/img/logo-mark.svg), digores satu per satu di tirai pembuka */
+export const LOGO_VIEWBOX = '-200.5 -195.5 990 990';
 const MARK_PATHS = [
   'M60 160C150 92 300 58 400 104c52 28 44 96-18 110-70 18-150-2-156-44-6-40 40-58 80-52 40 7 46 42 16 52-22 7-44-2-42-15',
   'M185 235c77 57 235 61 305-5 50-50 40-138-35-180',
   'M112 212c0 88 8 188 28 268 20 92 342 96 365 0 15-70 20-130 25-180',
   'M445 425c-5 35-20 55-40 67',
 ];
-/* tirai paling lama ditahan sampai ±2,2 detik sejak halaman mulai dibuka, walau foto/font belum siap */
 const VEIL_MAX_MS = 2200;
-/* saat pengembangan (Strict Mode) efek dijalankan dua kali berturut-turut: kelas intro baru dicabut
-   satu tick setelah dibersihkan, supaya jalankan kedua masih memutar intro */
 let stopTimer = 0;
 
-/* tirai pembuka: tampil hanya bila <html> punya kelas motion-ok + intro-veil (lihat CSS) */
 export function HeroVeil() {
   return (
     <div className="veil" aria-hidden="true">
-      <svg className="veil__mark" viewBox="20 20 560 580">
+      <svg className="veil__mark" viewBox={LOGO_VIEWBOX}>
         {MARK_PATHS.map((d) => <path key={d} pathLength="1" d={d} />)}
       </svg>
     </div>
   );
 }
 
-/* selesai bila font, foto latar hero, dan goresan logo sudah siap (atau batas waktu tercapai) */
 function whenReady(img, veil) {
   const settle = (p) => Promise.resolve(p).catch(() => {});
   const jobs = [settle(document.fonts?.ready), settle(img?.decode?.())];
-  try { veil.getAnimations({ subtree: true }).forEach((a) => jobs.push(settle(a.finished))); } catch { /* browser lama */ }
+  try { veil.getAnimations({ subtree: true }).forEach((a) => jobs.push(settle(a.finished))); } catch {}
   const cap = new Promise((r) => setTimeout(r, Math.max(250, VEIL_MAX_MS - performance.now())));
   return Promise.race([Promise.all(jobs), cap]);
 }
@@ -96,26 +83,23 @@ export default function Hero() {
     if (!motionOK()) { root.classList.remove('intro'); endVeil(); return; }
     let alive = true;
 
-    /* intro: dipasang skrip <head> saat Beranda dibuka langsung; saat pindah dari halaman lain, diputuskan di sini */
     let intro = root.classList.contains('intro');
     if (!intro) {
       try {
         if (!sessionStorage.getItem('kpr-intro')) { intro = true; sessionStorage.setItem('kpr-intro', '1'); root.classList.add('intro'); }
-      } catch { /* mode privat */ }
+      } catch {}
     }
-    /* tirai hanya saat Beranda dibuka langsung; saat pindah dari halaman lain, halaman sudah siap */
     const withVeil = intro && !!veil && root.classList.contains('intro-veil');
     if (!withVeil) endVeil();
 
     const fx = q('.hero__fx')[0];
 
-    /* debu kecil + guncangan saat stiker "ditempel" */
     const burst = contextSafe((card) => {
       const r = card.getBoundingClientRect();
       const h = hero.getBoundingClientRect();
       const cx = r.left - h.left + r.width / 2;
       const cy = r.bottom - h.top - 8;
-      const k = Math.min(1, r.width / 200); // kartu diperkecil di HP: debunya ikut kecil
+      const k = Math.min(1, r.width / 200);
       for (let i = 0; i < 12; i++) {
         const p = document.createElement('span');
         const ang = Math.PI + Math.random() * Math.PI;
@@ -129,14 +113,12 @@ export default function Hero() {
           duration: 0.75, ease: 'power2.out', onComplete: () => p.remove(),
         });
       }
-      /* guncangan kecil di seluruh hero (bukan di latar/rak, karena keduanya dipakai parallax) */
       gsap.fromTo(hero, { x: 0, y: 0 }, {
         keyframes: [{ x: 1.5, y: 1, duration: 0.07 }, { x: -1.5, y: -1, duration: 0.07 }, { x: 0, y: 0, duration: 0.1 }],
         ease: 'none', overwrite: 'auto', clearProps: 'transform',
       });
     });
 
-    /* stiker "bernapas" pelan, tiap stiker beda tempo dan mulai di titik berbeda */
     const float = () => {
       q('.stk__card').forEach((card, i) => {
         const s = STICKERS[i];
@@ -144,16 +126,12 @@ export default function Hero() {
       });
     };
 
-    /* awan & uap */
     q('.cloud').forEach((c, i) => gsap.to(c, { x: '16vw', duration: CLOUD_SECONDS[i], ease: 'sine.inOut', yoyo: true, repeat: -1 }));
-    /* autoRound: false supaya stroke-dashoffset (pecahan) tidak dibulatkan GSAP; tanpa itu uap melompat, tidak mengalir */
     gsap.fromTo(q('.steam path'), { strokeDashoffset: 0.45, autoRound: false }, { strokeDashoffset: -1, autoRound: false, duration: 3.2, ease: 'sine.inOut', stagger: { each: 1.05, repeat: -1 } });
 
     if (!intro) {
       float();
     } else {
-      /* selesai: kembalikan label & badge ke posisi dari CSS (GSAP sempat menggabungkan translate/rotate
-         mereka ke transform; kalau dibiarkan, label bisa bergeser saat bahasa diganti) */
       const copy = q('.hero__kicker, .hero__line, .hero__lead, .hero__cta');
       const shell = withVeil ? document.querySelector('.site-header .nav-shell') : null;
       const done = () => {
@@ -166,7 +144,6 @@ export default function Hero() {
         gsap.set(q('.note__arrow path'), { clearProps: 'strokeDasharray,strokeDashoffset' });
         float();
       };
-      /* dengan tirai: timeline ditahan dulu sampai halaman siap, isi hero mulai masuk saat tirai memudar */
       const o = withVeil ? 0.35 : 0;
       const tl = gsap.timeline({ paused: withVeil, onComplete: done });
       if (withVeil) {
@@ -195,7 +172,7 @@ export default function Hero() {
         tl.fromTo(note.querySelectorAll('.note__arrow path'), { strokeDasharray: 1, strokeDashoffset: 1, autoRound: false }, { strokeDashoffset: 0, autoRound: false, duration: 0.5, ease: 'power1.inOut' }, o + 1.7 + i * 0.1);
       });
       if (withVeil) {
-        veil.style.animation = 'none'; // JavaScript sudah jalan: cadangan pudar otomatis dari CSS tidak diperlukan
+        veil.style.animation = 'none';
         whenReady(q('.hero__bg img')[0], veil).then(() => { if (alive) tl.play(); });
       }
     }
@@ -204,7 +181,6 @@ export default function Hero() {
       alive = false;
       stopTimer = setTimeout(() => root.classList.remove('intro', 'intro-veil'), 0);
     };
-    /* parallax mengikuti kursor (hanya mouse) */
     if (!window.matchMedia('(pointer: fine)').matches) return stop;
     const layers = [['.hero__bg', -12, -7], ['.hero__shelf', 14, 8], ['.hero__copy', 6, 4]].map(([sel, ax, ay]) => {
       const el = q(sel)[0];
@@ -253,8 +229,8 @@ export default function Hero() {
           </span>
         </h1>
         <p className="hero__lead">
-          <T id="30 toko Kopi Padu Rasa di Sulawesi Selatan. Mampir langsung, pesan lewat aplikasi, atau chat minPadu di WhatsApp."
-            en="30 Kopi Padu Rasa stores across South Sulawesi. Drop by, order through the apps, or chat with minPadu on WhatsApp." />
+          <T id={`${STORE_COUNT} toko Kopi Padu Rasa di Sulawesi Selatan. Mampir langsung, pesan lewat aplikasi, atau chat minPadu di WhatsApp.`}
+            en={`${STORE_COUNT} Kopi Padu Rasa stores across South Sulawesi. Drop by, order through the apps, or chat with minPadu on WhatsApp.`} />
         </p>
         <div className="hero__cta">
           <Link className="btn btn--ghost btn--lg" href="/lokasi/"><span><T id="Lihat lokasi" en="See locations" /></span><span className="arr" aria-hidden="true">→</span></Link>

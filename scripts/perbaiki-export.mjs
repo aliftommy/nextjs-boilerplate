@@ -1,10 +1,3 @@
-/* Dijalankan otomatis setelah `next build` (lihat package.json).
-
-   Next.js 16 di Windows salah menamai file data prefetch saat ekspor statis: yang seharusnya
-   out/menu/__next.menu.__PAGE__.txt malah ditulis sebagai folder out/menu/__next.menu/__PAGE__.txt
-   (garis miring Windows ikut terbawa). Akibatnya browser mendapat 404 saat memprefetch halaman lain.
-   Skrip ini meratakan folder-folder itu kembali menjadi satu nama file bertitik.
-   Di Linux/macOS (mis. saat build di Vercel) folder seperti itu tidak ada, jadi skrip ini tidak mengubah apa pun. */
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 

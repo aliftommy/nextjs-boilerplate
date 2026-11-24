@@ -90,9 +90,11 @@ Pengunjung yang mematikan animasi di pengaturan HP atau komputernya langsung mel
   - `<file>-600.webp` dan `<file>-900.webp` untuk kartu (boleh dipotong).
   - `<file>-full.webp` untuk pop-up (foto utuh).
 
-  Daftarkan tokonya di `STORE_PHOTO` di `lib/data.js`, misalnya `Pajjaiang: { file: 'pajjaiang', rasio: [9, 10], posisi: 0.55 }`.
+  Daftarkan tokonya di `STORE_PHOTO` di `lib/data.js`, misalnya `Pajjaiang: { file: 'pajjaiang', rasio: [1, 1], posisi: 0.5 }`.
   - `rasio` diisi rasio file kartu.
-  - `posisi` diisi letak potongan kartu di foto utuh (0 = atas, 0.5 = tengah, 1 = bawah), supaya animasi pop-up pas.
+  - `posisi` diisi letak potongan kartu di foto utuh, supaya animasi pop-up pas. Foto tegak dipotong atas-bawah (0 = atas, 0.5 = tengah, 1 = bawah); foto mendatar dipotong kiri-kanan (0 = kiri, 0.5 = tengah, 1 = kanan).
+  - Toko yang belum punya foto memakai logo (`public/img/toko/logo-600.webp` & `-900.webp`, dari `foto beranda/Logo Profil`) sebagai pengganti. Logo ini tidak bisa diklik. Matikan lewat `LOGO_FOR_NO_PHOTO` di `components/lokasi/LokasiPage.js`.
+  - Sementara ini toko yang punya foto ditaruh paling atas (`PHOTO_FIRST` di `lib/data.js`). Ubah ke `false` untuk kembali ke urutan JSON.
 
 ## Hosting
 

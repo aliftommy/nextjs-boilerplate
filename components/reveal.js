@@ -1,8 +1,4 @@
 'use client';
-/* MUNCUL SAAT DI-SCROLL (GSAP ScrollTrigger.batch)
-   Elemen bertanda data-reveal di dalam `scope` naik + memudar masuk saat masuk layar,
-   bergantian bila beberapa muncul bersamaan. Angka bertanda data-count ikut berjalan dari 0.
-   Keadaan awal (transparan) diatur di CSS: html.motion-ok [data-reveal] { opacity: 0 }. */
 import { gsap, ScrollTrigger, useGSAP, motionOK, EASE_OUT } from '@/lib/gsap';
 
 function countUp(el) {

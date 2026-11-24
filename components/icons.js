@@ -1,4 +1,3 @@
-/* ikon garis yang dipakai di banyak tempat */
 const s = { fill: 'none', stroke: 'currentColor', strokeLinecap: 'round', strokeLinejoin: 'round' };
 
 export const IconClose = () => (
@@ -43,7 +42,6 @@ export const IconChevron = ({ dir = 'right' }) => (
   </svg>
 );
 
-/* ilustrasi Tahu So (belum ada foto produk) */
 export const Tofu = ({ label }) => (
   <svg viewBox="0 0 120 120" role="img" aria-label={label}>
     <rect width="120" height="120" fill="#f6efe0" />

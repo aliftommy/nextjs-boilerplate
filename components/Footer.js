@@ -1,8 +1,8 @@
 'use client';
 import Link from 'next/link';
-import { COMMON, WA_ORDER } from '@/lib/data';
+import { APPS, COMMON, NAV, SITE, href } from '@/lib/data';
 import { IconGlobe, IconWa } from './icons';
-import { T, useLang } from './lang';
+import { useLang } from './lang';
 import { LangSwitch, useUI } from './ui';
 
 const F = COMMON.footer;
@@ -27,18 +27,7 @@ const SOCIAL_ICON = {
   ),
   WhatsApp: <IconWa />,
 };
-const SOCIAL_LABEL = {
-  Instagram: 'Instagram @kopipadurasa', TikTok: 'TikTok @kopipadurasa', Facebook: 'Facebook',
-  Threads: 'Threads @kopipadurasa', WhatsApp: 'WhatsApp 0821-8717-165',
-};
-
-const EXPLORE = [
-  { href: '/', id: 'Beranda', en: 'Home' },
-  { href: '/menu/', id: 'Menu', en: 'Menu' },
-  { href: '/kemitraan/', id: 'Kemitraan', en: 'Partnership' },
-  { href: '/lokasi/', id: 'Lokasi', en: 'Locations' },
-  { href: '/karir/', id: 'Karir', en: 'Careers' },
-];
+const HQ = SITE.kantor_pusat;
 
 export default function Footer() {
   const { t, L, lang, setLang } = useLang();
@@ -52,30 +41,31 @@ export default function Footer() {
             <img className="brand__mark" src="/img/logo-mark-light.svg" alt="" width="42" height="42" />
             <span className="brand__word" aria-hidden="true">Kopi Padu Rasa</span>
           </Link>
-          <p><T id="Kopi to go, buka 24 jam di 30 toko se-Sulawesi Selatan." en="Coffee to go, open 24 hours at 30 stores across South Sulawesi." /></p>
+          <p>{t(F.teks_brand)}</p>
         </div>
         <div className="footer__col footer__col--wide">
           <h2 className="footer__title">{t(F.pesan_online.judul)}</h2>
           <div className="footer__apps">
-            {['GoFood', 'GrabFood', 'ShopeeFood'].map((a) => (
+            {APPS.map(({ aplikasi: a, link }) => (a === 'WhatsApp' ? (
+              <a key={a} className="chip-app chip-app--wa" href={link} target="_blank" rel="noopener">{a}</a>
+            ) : (
               <button key={a} type="button" className="chip-app" data-app={a} onClick={() => openStores(a)}>{a}</button>
-            ))}
-            <a className="chip-app chip-app--wa" href={WA_ORDER} target="_blank" rel="noopener">WhatsApp</a>
+            )))}
           </div>
         </div>
-        <nav className="footer__col" aria-label={L('Jelajahi', 'Explore')}>
+        <nav className="footer__col" aria-label={t(F.jelajahi.judul)}>
           <h2 className="footer__title">{t(F.jelajahi.judul)}</h2>
           <ul>
-            {EXPLORE.map((n) => (
-              <li key={n.href}><Link href={n.href}><T id={n.id} en={n.en} /></Link></li>
+            {NAV.map((n) => (
+              <li key={n.link}><Link href={href(n.link)}>{t(n)}</Link></li>
             ))}
           </ul>
         </nav>
         <div className="footer__col">
           <h2 className="footer__title">{t(F.kantor_pusat.judul)}</h2>
           <address>
-            PT. Sinergi Rasa Nusantara<br />Jl Urip Sumoharjo<br />
-            <T id="Makassar, Sulawesi Selatan" en="Makassar, South Sulawesi" /><br />Indonesia
+            {HQ.perusahaan}<br />{HQ.jalan}<br />
+            {t(HQ.kota)}<br />{HQ.negara}
           </address>
         </div>
         <div className="footer__col">
@@ -83,7 +73,7 @@ export default function Footer() {
           <ul className="social">
             {F.ikuti_kami.ikon.map((s) => (
               <li key={s.nama}>
-                <a href={s.link} target="_blank" rel="noopener" aria-label={SOCIAL_LABEL[s.nama] || s.nama}>{SOCIAL_ICON[s.nama]}</a>
+                <a href={s.link} target="_blank" rel="noopener" aria-label={s.label || s.nama}>{SOCIAL_ICON[s.nama] || s.nama}</a>
               </li>
             ))}
           </ul>
@@ -92,7 +82,7 @@ export default function Footer() {
       <div className="container footer__bottom">
         <p>{F.hak_cipta}</p>
         <LangSwitch lang={lang} setLang={setLang} label={L('Pilih bahasa', 'Choose language')} />
-        <Link className="region" href="/lokasi/"><IconGlobe />{F.wilayah.teks}</Link>
+        <Link className="region" href={href(F.wilayah.link)}><IconGlobe />{F.wilayah.teks}</Link>
       </div>
     </footer>
   );

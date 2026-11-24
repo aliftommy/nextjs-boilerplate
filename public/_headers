@@ -1,6 +1,3 @@
-# Kopi Padu Rasa: header untuk Netlify / Cloudflare Pages (hosting Apache memakai .htaccess).
-# Ikut tersalin ke out/ saat `npm run build`.
-
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin

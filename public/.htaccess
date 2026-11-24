@@ -1,21 +1,13 @@
-# Kopi Padu Rasa: pengaturan untuk hosting Apache (cPanel, Hostinger, Niagahoster, dsb.).
-# Ikut tersalin ke out/ saat `npm run build`. Hosting lain (Netlify, Cloudflare Pages) memakai file _headers.
-
-# halaman 404 bermerek & daftar isi folder tidak ditampilkan
 ErrorDocument 404 /404.html
 Options -Indexes
 
 <IfModule mod_headers.c>
-  # header keamanan
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set X-Frame-Options "DENY"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
-  # semua skrip, gaya, font, dan gambar berasal dari situs sendiri; 'unsafe-inline' dibutuhkan Next.js (skrip data halaman)
   Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
 
-  # cache: file di /_next/static/ bernama unik (berubah tiap build) -> boleh disimpan 1 tahun;
-  # gambar 1 hari; halaman HTML selalu dicek ulang supaya perubahan langsung terlihat
   <If "%{REQUEST_URI} =~ m#^/_next/static/#">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </If>
@@ -27,7 +19,6 @@ Options -Indexes
   </Else>
 </IfModule>
 
-# kompresi teks (HTML, CSS, JS, data) supaya unduhan lebih kecil
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json image/svg+xml font/ttf
 </IfModule>

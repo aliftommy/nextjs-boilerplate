@@ -1,20 +1,17 @@
 'use client';
-/* MENU
-   - pita kategori menempel di bawah header; kategori yang sedang dibaca ditandai (ScrollTrigger)
-     dan pitanya ikut bergeser ke kategori itu (GSAP ScrollTo)
-   - klik kategori: halaman bergulir halus ke kategorinya (GSAP ScrollTo) */
 import { useRef, useState } from 'react';
-import { ADDONS, MENU, NOTE_EN, SLUG } from '@/lib/data';
+import { ADDONS, MENU, page, part } from '@/lib/data';
 import { gsap, motionOK, ScrollTrigger, useGSAP } from '@/lib/gsap';
 import ProductCard from '../ProductCard';
-import { T, useDocTitle, useLang } from '../lang';
+import { useDocTitle, useLang } from '../lang';
 import { useReveal } from '../reveal';
 import { AppGrid } from '../ui';
 
 const catId = (c) => c.alamat_bagian.split('#')[1] || '';
 const CATS = [...MENU.kategori.map((c) => ({ id: catId(c), c })), { id: 'padu-plus', addons: true }];
+const TAB = page('Menu').judul_tab;
+const HEAD = part('Menu', 'Pesan lewat aplikasi');
 
-/* jarak dari atas layar ke kategori setelah digulir: header yang menempel + pita kategori */
 function stickyOffset() {
   const nav = document.querySelector('.cat-nav');
   const top = nav ? parseFloat(getComputedStyle(nav).top) || 0 : 0;
@@ -27,7 +24,7 @@ export default function MenuPage() {
   const { t, L } = useLang();
   const [active, setActive] = useState(null);
   useReveal(ref);
-  useDocTitle('Menu · Kopi Padu Rasa', 'Menu · Kopi Padu Rasa');
+  useDocTitle(TAB.id, TAB.en);
 
   useGSAP((ctx, contextSafe) => {
     const nav = navRef.current;
@@ -46,7 +43,6 @@ export default function MenuPage() {
       });
     });
 
-    /* dibuka lewat alamat bertanda bagian (mis. /menu/#menu-seliter): tepat di bawah pita kategori */
     if (location.hash) {
       const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
       if (el) requestAnimationFrame(() => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - stickyOffset()));
@@ -65,9 +61,9 @@ export default function MenuPage() {
     <main id="konten" ref={ref}>
       <section className="page-hero" id="pesan-online" aria-labelledby="menuTitle">
         <div className="container">
-          <p className="kicker">Menu</p>
-          <h1 className="page-title" id="menuTitle"><T id="Pesan lewat Aplikasi" en="Order Through the Apps" /></h1>
-          <p className="page-lead"><T id="Pilih aplikasi favoritmu, atau chat minPadu di WhatsApp." en="Pick your favorite app, or chat with minPadu on WhatsApp." /></p>
+          <p className="kicker">{t(HEAD.label_kecil)}</p>
+          <h1 className="page-title" id="menuTitle">{t(HEAD.judul)}</h1>
+          <p className="page-lead">{t(HEAD.teks)}</p>
           <AppGrid />
         </div>
       </section>
@@ -89,18 +85,16 @@ export default function MenuPage() {
       <div className="container menu-body">
         {MENU.kategori.map((c) => {
           const id = catId(c);
-          const kind = /hangat/.test(id) ? 'hot' : /seliter/.test(id) ? 'liter' : 'plain';
           return (
             <section className="menu-cat" id={id} key={id} aria-labelledby={id + '-t'}>
               <div className="menu-cat__head">
                 <h2 className="h2" id={id + '-t'}>{t(c.judul)}</h2>
                 <span className="menu-cat__count">{c.produk.length} {L('pilihan', c.produk.length > 1 ? 'items' : 'item')}</span>
-                {c.keterangan && <p className="menu-cat__note">{L(c.keterangan, NOTE_EN[c.keterangan] || c.keterangan)}</p>}
+                {c.keterangan && <p className="menu-cat__note">{t(c.keterangan)}</p>}
               </div>
               <div className="pgrid">
                 {c.produk.map((p) => (
-                  <ProductCard key={p.nama} p={p} showFav
-                    kind={typeof p.harga === 'object' ? 'size' : SLUG[p.nama] ? kind : 'plain'} />
+                  <ProductCard key={p.nama} p={p} showFav priceLabel={t(c.label_harga)} />
                 ))}
               </div>
             </section>

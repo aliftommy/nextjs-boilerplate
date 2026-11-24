@@ -1,8 +1,6 @@
-/* sitemap.xml untuk Google: daftar halaman situs (hasil build: out/sitemap.xml).
-   Tambahkan halaman baru di sini bila ada. */
 import { SITE_URL } from '@/lib/meta';
 
-export const dynamic = 'force-static'; // wajib untuk output: 'export'
+export const dynamic = 'force-static';
 
 const PAGES = [
   { path: '/', priority: 1 },

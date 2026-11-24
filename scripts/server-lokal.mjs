@@ -1,12 +1,3 @@
-/*
-  Mencoba hasil build (folder out/) di komputer dan di HP lewat Wi-Fi yang sama.
-
-      npm run build
-      npm run preview          (atau: npm run preview -- 3000 untuk port lain)
-
-  Buka alamat "Di HP" yang muncul di browser HP. Hentikan dengan Ctrl+C.
-  Untuk mengedit sambil melihat perubahan langsung, pakai `npm run dev` (lihat README).
-*/
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';

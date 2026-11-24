@@ -1,9 +1,4 @@
 'use client';
-/* SLIDER PROMO (3 slide, selebar layar)
-   - bisa digeser jari (scroll-snap CSS), panah, titik, dan tombol panah keyboard
-   - pindah slide: GSAP ScrollToPlugin menggulir ke slide tujuan dengan halus
-   - berganti otomatis tiap 5 detik (gsap.delayedCall), berhenti saat kursor/fokus di slider
-     atau tab tidak terlihat; tidak berganti otomatis bila pengunjung mematikan animasi */
 import Link from 'next/link';
 import { useRef, useState } from 'react';
 import { MENU, WA_ORDER } from '@/lib/data';
@@ -53,7 +48,7 @@ export default function PromoSlider() {
       if (tween) tween.kill();
       const x = i * vp.clientWidth;
       if (!smooth || !motion) { vp.scrollLeft = x; tween = null; return; }
-      vp.style.scrollSnapType = 'none'; // snap dimatikan sebentar supaya tidak melawan gulir GSAP
+      vp.style.scrollSnapType = 'none';
       tween = gsap.to(vp, {
         scrollTo: { x, autoKill: false },
         duration: 0.85,

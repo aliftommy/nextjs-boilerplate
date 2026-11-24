@@ -1,10 +1,4 @@
 'use client';
-/* Penanda di <html> + penyegar ScrollTrigger.
-   - js / motion-ok: dipasang skrip <head> sebelum halaman tampil; dipasang ulang di sini untuk jaga-jaga
-     (React bisa mengatur ulang atribut <html> saat pengembangan).
-   - app-ready: tanda JavaScript situs sudah jalan. Bila tidak muncul dalam 5 detik, skrip <head> mencabut
-     motion-ok supaya konten yang menunggu animasi tetap tampil.
-   - Tinggi halaman berubah (foto selesai dimuat, pindah halaman, ganti bahasa): posisi pemicu scroll dihitung ulang. */
 import { usePathname } from 'next/navigation';
 import { useEffect, useLayoutEffect } from 'react';
 import { ScrollTrigger, motionOK } from '@/lib/gsap';

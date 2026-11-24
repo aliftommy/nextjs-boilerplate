@@ -583,16 +583,16 @@ a.slide__media:hover > img { transform: scale(1.02); }
 
 .pgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: clamp(14px, 2vw, 24px); }
 .pgrid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-/* Name and price always stay on one line: both shrink with the card width (--pc-fit)
-   so the longest name ("Kopi Padu Pandan") still fits next to its price. */
+/* Name and price always stay on one line and are as large as possible: both scale with the
+   card width (--pc-fit) so the longest name ("Kopi Padu Pandan") just fits next to its price.
+   If a longer name is added, raise the two divisors below (it will show "…" until then). */
 .pcard {
   position: relative; display: flex; flex-direction: column;
   background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
   box-shadow: var(--shadow-sm); overflow: hidden;
   transition: transform .28s var(--ease-out), box-shadow .28s;
   container-type: inline-size;
-  --pc-pad: 14px; --pc-gap: 10px;
-  --pc-name: clamp(18px, 1.6vw, 21px); --pc-price: 16px;
+  --pc-pad: 12px; --pc-gap: 8px;
   --pc-fit: calc(100cqi - 2 * var(--pc-pad) - var(--pc-gap));
 }
 .pcard:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
@@ -610,10 +610,10 @@ a.slide__media:hover > img { transform: scale(1.02); }
 .pcard__body { flex: 1; display: flex; justify-content: space-between; align-items: baseline; gap: var(--pc-gap); padding: 14px var(--pc-pad) 16px; }
 .pcard__name {
   flex: 1; min-width: 0;
-  font: 700 min(var(--pc-name), calc(var(--pc-fit) / 12.9))/1.25 var(--f-display); color: var(--brown-2);
+  font: 700 calc(var(--pc-fit) / 12.75)/1.25 var(--f-display); color: var(--brown-2);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.pcard__price { font: 800 min(var(--pc-price), calc(var(--pc-fit) / 14.6))/1.1 var(--f-body); color: var(--brown-2); white-space: nowrap; }
+.pcard__price { font: 800 calc(var(--pc-fit) / 14.5)/1.1 var(--f-body); color: var(--brown-2); white-space: nowrap; }
 .pcard__price small { font-size: .68em; font-weight: 700; margin-right: .2em; }
 
 .section-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px 24px; margin-bottom: 14px; }
@@ -1174,13 +1174,14 @@ a.app-pill:hover { background: var(--c); border-color: var(--c); color: #fff; }
 @media (max-width: 640px) {
   :root { --bar-h: 58px; }
   .header__actions .lang { display: none; }
-  .drawer__link { padding-block: 14px; font-size: 21px; }
-  .drawer__link::after { font-size: 16px; }
-  .drawer__extra { gap: 14px; margin-top: 22px; }
-  .drawer__extra .btn { min-height: 48px; font-size: 14.5px; }
-  .drawer__extra .btn svg { width: 18px; height: 18px; }
-  .drawer__ig { font-size: 14px; }
-  .drawer .lang-text button, .drawer .region { font-size: 12.5px; }
+  .drawer__body { padding-top: 22px; }
+  .drawer__link { padding-block: 18px; font-size: 18px; }
+  .drawer__link::after { font-size: 14px; }
+  .drawer__extra { gap: 16px; margin-top: 28px; }
+  .drawer__extra .btn { min-height: 46px; font-size: 14px; }
+  .drawer__extra .btn svg { width: 17px; height: 17px; }
+  .drawer__ig { font-size: 13px; }
+  .drawer .lang-text button, .drawer .region { font-size: 12px; }
   .drawer .region svg { width: 16px; height: 16px; }
   .site-header .brand, .drawer__bar .brand { gap: 8px; }
   .site-header .brand__mark, .drawer__bar .brand__mark { width: 30px; height: 30px; }
@@ -1217,7 +1218,7 @@ a.app-pill:hover { background: var(--c); border-color: var(--c); color: #fff; }
   }
   .cloud { height: 18vw; width: 60vw; }
   .pgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .pcard { --pc-pad: 8px; --pc-gap: 4px; --pc-name: 15px; --pc-price: 13.5px; }
+  .pcard { --pc-pad: 8px; --pc-gap: 4px; }
   .pcard__body { padding-block: 11px 12px; }
   .page-hero { border-radius: 0 0 50% 50% / 0 0 26px 26px; }
   .modal .app-grid { grid-template-columns: 1fr; }

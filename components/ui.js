@@ -17,7 +17,6 @@ function storage(k, v) {
   } catch {}
   return null;
 }
-const nextFrame = (fn) => requestAnimationFrame(() => requestAnimationFrame(fn));
 
 export function UIProvider({ children }) {
   const [drawer, setDrawer] = useState({ open: false, instant: false });
@@ -77,22 +76,11 @@ function Modal({ open, onClose, className = '', labelledBy, onOpen, children }) 
 
   useEffect(() => {
     const dlg = ref.current;
-    const card = dlg.querySelector('.modal__card');
-    gsap.killTweensOf(card);
     if (open) {
       if (!dlg.open) dlg.showModal();
       onOpen?.(dlg);
-      nextFrame(() => dlg.classList.add('is-shown'));
-      if (motionOK()) {
-        gsap.fromTo(card, { opacity: 0, y: 30, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'power3.out' });
-      }
     } else if (dlg.open) {
-      dlg.classList.remove('is-shown');
-      if (!motionOK()) { dlg.close(); return; }
-      gsap.to(card, {
-        opacity: 0, y: 18, scale: 0.98, duration: 0.24, ease: 'power2.in',
-        onComplete: () => { dlg.close(); gsap.set(card, { clearProps: 'opacity,transform' }); },
-      });
+      dlg.close();
     }
   }, [open]);
 
@@ -270,7 +258,8 @@ function Drawer({ state, onClose }) {
               const to = href(n.link);
               return (
                 <li key={n.link}>
-                  <Link className="drawer__link" href={to} aria-current={to === pathname ? 'page' : undefined}>{t(n)}</Link>
+                  <Link className="drawer__link" href={to}
+                    aria-current={to === pathname ? 'page' : to !== '/' && pathname.startsWith(to) ? 'true' : undefined}>{t(n)}</Link>
                 </li>
               );
             })}

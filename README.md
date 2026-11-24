@@ -74,8 +74,7 @@ Pilihan bahasa ID/EN di header sedang dimatikan. Untuk menampilkannya lagi, ubah
 | Hero Beranda | `components/home/Hero.js` | Beranda dibuka langsung pertama kali per sesi: tirai krem dengan logo tergores, memudar begitu font & foto siap (paling lama ±2,2 detik). Kunjungan pertama per sesi: tulisan hero naik masuk berurutan, latar zoom keluar, stiker "ditempel" satu per satu dengan debu & guncangan kecil, label & badge muncul, panah tergambar. Setelah itu stiker "bernapas", awan bergeser, uap kopi naik, parallax mengikuti kursor. |
 | Slider promo | `components/home/PromoSlider.js` | Geser halus antar-slide (ScrollTo), ganti otomatis tiap 5 detik |
 | Muncul saat di-scroll | `components/reveal.js` | Elemen bertanda `data-reveal` naik & memudar masuk, bergantian; angka 30 berjalan dari 0 |
-| Kartu produk | `components/ProductCard.js` | Foto "membal" saat ukuran Normal/Besar diganti |
-| Menu ponsel & pop-up | `components/ui.js` | Panel memudar, baris menu naik satu per satu; kartu pop-up naik & memudar |
+| Menu ponsel | `components/ui.js` | Panel memudar, baris menu naik satu per satu (pop-up pesan online muncul & hilang langsung, tanpa animasi) |
 | Kategori menu | `components/menu/MenuPage.js` | Kategori yang sedang dibaca ditandai (ScrollTrigger), klik kategori menggulir halus |
 | Foto toko | `components/lokasi/LokasiPage.js` | Foto membesar dari kartu ke tengah layar sambil membuka bagian yang terpotong, lalu kembali ke kartu saat ditutup |
 | Kemitraan | `components/kemitraan/KemitraanPage.js` | Logo digores garis demi garis seperti tangan menggambar (satu garis selesai baru garis berikutnya), cincin berputar, garis alur terisi mengikuti scroll (ScrollTrigger scrub) |

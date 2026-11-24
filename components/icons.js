@@ -21,8 +21,8 @@ export const IconWa = () => (
     <path fill="currentColor" d="M9.2 8.4c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.5c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .5.6 1 1.4 1.8 2.4 2.3.2.1.4.1.5 0l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.2.1.3.3.3.5 0 .6-.3 1.3-.9 1.6-.8.4-1.9.4-3.4-.3-1.9-.9-3.3-2.5-4-4.2-.4-1-.4-2 .2-2.9z" />
   </svg>
 );
-export const IconSwap = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-3.5-3.5M18 16H6l3.5 3.5" {...s} strokeWidth="2.2" /></svg>
+export const IconCheck = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 12.5l4 4 9-9" {...s} strokeWidth="2.8" /></svg>
 );
 export const IconPin = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">

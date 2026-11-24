@@ -1,16 +1,19 @@
 'use client';
+import Link from 'next/link';
 import { useRef } from 'react';
-import { page, part } from '@/lib/data';
+import { JOB, JOB_HREF, JOB_OPEN, JOB_PART, page, part } from '@/lib/data';
 import { gsap, motionOK, ScrollTrigger, useGSAP } from '@/lib/gsap';
 import { IconWa } from '../icons';
 import { useDocTitle, useLang } from '../lang';
 import { useReveal } from '../reveal';
+import JobPlaces from './JobPlaces';
 
 const TAB = page('Karir').judul_tab;
 const HEAD = part('Karir', 'Judul halaman');
 const GROW = part('Karir', 'Bertumbuh Bersama');
 const VALUES = part('Karir', 'Belajar · Bersama · Berdampak');
 const CLOSING = part('Karir', 'Penutup');
+const shown = (p) => p && p.tampil !== false;
 
 const ROAD = 'M48 470C180 470 226 404 176 352 124 300 172 236 282 254c110 18 190-16 150-88-36-62 0-104 68-108';
 const [START_LABEL, ...STOP_LABELS] = HEAD.gambar_jalan.label;
@@ -85,6 +88,29 @@ function Road() {
   );
 }
 
+function Jobs() {
+  const { t } = useLang();
+  return (
+    <section className="section jobs" aria-labelledby="jobsTitle">
+      <div className="container">
+        <h2 className="h2 center" id="jobsTitle">{t(JOB_PART.judul)}</h2>
+        <div className="jobs__card" data-reveal>
+          <Link className="job" href={JOB_HREF}>
+            <div className="job__text">
+              <h3 className="job__title">{t(JOB.posisi)}</h3>
+              <JobPlaces list={JOB.lokasi} />
+              <span className="btn btn--primary job__open">
+                <span>{t(JOB_PART.tombol_detail)}</span><span className="arr" aria-hidden="true">→</span>
+              </span>
+            </div>
+            {JOB.gambar && <img className="job__art" src={`/img/karir/${JOB.gambar}.webp`} alt="" loading="lazy" decoding="async" />}
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function KarirPage() {
   const ref = useRef(null);
   const { t } = useLang();
@@ -104,43 +130,51 @@ export default function KarirPage() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="growTitle">
-        <div className="container grow__inner">
-          <div className="grow__text" data-reveal>
-            <h2 className="h2" id="growTitle">{t(GROW.judul)}</h2>
-            {GROW.teks.map((p) => <p key={p.id}>{t(p)}</p>)}
-          </div>
-          <blockquote className="quote" data-reveal>
-            <p>{t(GROW.kutipan)}</p>
-          </blockquote>
-        </div>
-      </section>
+      {JOB_OPEN && <Jobs />}
 
-      <section className="section values" aria-labelledby="valuesTitle">
-        <div className="container">
-          <h2 className="sr-only" id="valuesTitle">{t(VALUES.judul_tersembunyi_untuk_google)}</h2>
-          <div className="value-grid">
-            {VALUES.kartu.map((v, i) => (
-              <article className="value" data-reveal key={v.label.id}>
-                <p className="value__label"><span className="value__no">{i + 1}</span><span>{t(v.label)}</span></p>
-                <h3>{t(v.judul)}</h3>
-                {v.teks.map((p) => <p key={p.id}>{t(p)}</p>)}
-              </article>
-            ))}
+      {shown(GROW) && (
+        <section className="section" aria-labelledby="growTitle">
+          <div className="container grow__inner">
+            <div className="grow__text" data-reveal>
+              <h2 className="h2" id="growTitle">{t(GROW.judul)}</h2>
+              {GROW.teks.map((p) => <p key={p.id}>{t(p)}</p>)}
+            </div>
+            <blockquote className="quote" data-reveal>
+              <p>{t(GROW.kutipan)}</p>
+            </blockquote>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      <section className="section" aria-labelledby="closingTitle">
-        <div className="container closing__inner" data-reveal>
-          <h2 className="h2" id="closingTitle">{t(CLOSING.judul)}</h2>
-          {CLOSING.teks.map((p) => <p key={p.id}>{t(p)}</p>)}
-          <p className="closing__last">{t(CLOSING.kalimat_akhir)}</p>
-          <a className="btn btn--wa btn--lg" href={CLOSING.tombol.link} target="_blank" rel="noopener">
-            <IconWa />{CLOSING.tombol.teks}
-          </a>
-        </div>
-      </section>
+      {shown(VALUES) && (
+        <section className="section values" aria-labelledby="valuesTitle">
+          <div className="container">
+            <h2 className="sr-only" id="valuesTitle">{t(VALUES.judul_tersembunyi_untuk_google)}</h2>
+            <div className="value-grid">
+              {VALUES.kartu.map((v, i) => (
+                <article className="value" data-reveal key={v.label.id}>
+                  <p className="value__label"><span className="value__no">{i + 1}</span><span>{t(v.label)}</span></p>
+                  <h3>{t(v.judul)}</h3>
+                  {v.teks.map((p) => <p key={p.id}>{t(p)}</p>)}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {shown(CLOSING) && (
+        <section className="section" aria-labelledby="closingTitle">
+          <div className="container closing__inner" data-reveal>
+            <h2 className="h2" id="closingTitle">{t(CLOSING.judul)}</h2>
+            {CLOSING.teks.map((p) => <p key={p.id}>{t(p)}</p>)}
+            <p className="closing__last">{t(CLOSING.kalimat_akhir)}</p>
+            <a className="btn btn--wa btn--lg" href={CLOSING.tombol.link} target="_blank" rel="noopener">
+              <IconWa />{CLOSING.tombol.teks}
+            </a>
+          </div>
+        </section>
+      )}
     </main>
   );
 }

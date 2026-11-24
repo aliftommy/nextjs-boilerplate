@@ -176,7 +176,7 @@
           "label_kecil": "Menu",
           "judul": { "id": "Menu favorit", "en": "Customer favorites" },
           "tombol": { "id": "Lihat semua menu →", "en": "See the full menu →", "link": "/menu" },
-          "keterangan": "Isinya otomatis: semua produk bertanda \"favorit\": true di halaman Menu. Kartu bisa ditekan untuk ganti ukuran Normal ↔ Besar."
+          "keterangan": "Isinya otomatis: semua produk bertanda \"favorit\": true di halaman Menu."
         },
         {
           "nama": "Kartu ajakan Lokasi",
@@ -216,7 +216,7 @@
         },
         {
           "nama": "Daftar menu",
-          "keterangan": "Semua kategori tampil berurutan ke bawah. Produk bertanda \"favorit\": true tampil juga di beranda. Produk dengan dua harga (Normal & Besar) bisa ditekan untuk ganti ukuran. \"foto\" = nama file di public/img/produk/ tanpa .webp (produk dua harga: satu foto per ukuran). Produk tanpa \"foto\" memakai gambar ilustrasi. Beri \"tampil\": false untuk menyembunyikan produk tanpa menghapusnya.",
+          "keterangan": "Semua kategori tampil berurutan ke bawah. Produk bertanda \"favorit\": true tampil juga di beranda. Produk dengan dua harga (Normal & Besar) hanya menampilkan harga & foto Normal di kartu. \"foto\" = nama file di public/img/produk/ tanpa .webp. Produk tanpa \"foto\" memakai gambar ilustrasi. Beri \"tampil\": false untuk menyembunyikan produk tanpa menghapusnya.",
           "label_ukuran": { "Normal": { "id": "Normal", "en": "Regular" }, "Besar": { "id": "Besar", "en": "Large" } },
           "label_favorit": { "id": "★ Favorit", "en": "★ Favorite" },
           "kategori": [
@@ -770,7 +770,59 @@
           }
         },
         {
+          "nama": "Lowongan",
+          "keterangan": "Section \"We Are Hiring\", tampil tepat di bawah judul halaman Karir. Isinya satu kartu yang membuka halaman lowongan /karir/barista-pinrang-sidrap/ (kualifikasi, berkas, benefit, dan tombol kirim lamaran). Beri \"tampil\": false untuk menutup lowongan: kartunya hilang dari halaman Karir dan halaman lowongannya jadi 404. \"gambar\" = gambar di kartu, \"gambar_detail\" = gambar di halaman lowongan; keduanya nama file di public/img/karir/ tanpa .webp.",
+          "judul": { "id": "We Are Hiring", "en": "We Are Hiring" },
+          "label_lokasi": { "id": "Lokasi penempatan", "en": "Placement" },
+          "tombol_detail": { "id": "Lihat syarat & cara melamar", "en": "Requirements & how to apply" },
+          "label_kecil_detail": "Kopi Padu Rasa",
+          "tombol_kembali": { "id": "Kembali ke Karir", "en": "Back to Careers" },
+          "judul_kualifikasi": { "id": "Kualifikasi", "en": "Requirements" },
+          "judul_berkas": { "id": "Berkas lamaran", "en": "Documents" },
+          "judul_benefit": { "id": "Benefit", "en": "Benefits" },
+          "lowongan": {
+            "tampil": true,
+            "judul_tab": {
+              "id": "Lowongan Barista · Pinrang & Sidrap · Kopi Padu Rasa",
+              "en": "Barista Vacancy · Pinrang & Sidrap · Kopi Padu Rasa"
+            },
+            "deskripsi_google": "Kopi Padu Rasa membuka lowongan Barista di Pinrang & Sidrap. Cek kualifikasi, berkas lamaran, dan benefitnya, lalu kirim lamaranmu.",
+            "posisi": { "id": "Barista", "en": "Barista" },
+            "lokasi": ["Pinrang", "Sidrap"],
+            "gambar": "barista",
+            "gambar_detail": "barista-tim",
+            "kualifikasi": [
+              { "id": "Pria (Muslim), usia Min. 21 tahun", "en": "Male (Muslim), at least 21 years old" },
+              { "id": "Shalat 5 waktu", "en": "Observes the five daily prayers" },
+              { "id": "Lulusan SMA/SMK sederajat", "en": "High school/vocational graduate or equivalent" },
+              { "id": "Tidak sedang menempuh pendidikan/kuliah", "en": "Not currently in school or university" },
+              { "id": "Mampu bekerja dalam tim", "en": "Able to work in a team" },
+              { "id": "Bersedia bekerja shift/full time", "en": "Willing to work shifts / full time" },
+              { "id": "Belum menikah, jujur, dan bertanggung jawab", "en": "Unmarried, honest, and responsible" },
+              { "id": "Berpenampilan menarik dan sehat jasmani dan rohani", "en": "Well-presented, physically and mentally healthy" },
+              { "id": "Berdomisili di sekitar wilayah penempatan", "en": "Lives near the placement area" }
+            ],
+            "berkas": [
+              { "id": "Curriculum Vitae (CV)", "en": "CV" },
+              { "id": "Surat lamaran", "en": "Cover letter" },
+              { "id": "Pas foto", "en": "ID photo" },
+              { "id": "Foto ijazah", "en": "Diploma photo" },
+              { "id": "Foto KTP & KK", "en": "ID & family card photos" }
+            ],
+            "benefit": [
+              { "id": "Gaji pokok", "en": "Base salary" },
+              { "id": "Bonus kinerja", "en": "Performance bonus" },
+              { "id": "THR", "en": "Holiday bonus (THR)" },
+              { "id": "Jenjang karir", "en": "Career path" }
+            ],
+            "ajakan": { "id": "Segera kirim lamaranmu melalui link berikut:", "en": "Send your application now through this link:" },
+            "link_lamaran": "https://bit.ly/KPR-Sulsel"
+          }
+        },
+        {
           "nama": "Bertumbuh Bersama",
+          "tampil": false,
+          "keterangan": "Sedang tidak ditampilkan sejak 24 Nov 2026. Ganti \"tampil\" jadi true untuk menampilkannya lagi.",
           "judul": { "id": "Bertumbuh Bersama, Memberikan Dampak Bersama", "en": "Growing Together, Making an Impact Together" },
           "teks": [
             {
@@ -793,6 +845,8 @@
         },
         {
           "nama": "Belajar · Bersama · Berdampak",
+          "tampil": false,
+          "keterangan": "Sedang tidak ditampilkan sejak 24 Nov 2026. Ganti \"tampil\" jadi true untuk menampilkannya lagi.",
           "judul_tersembunyi_untuk_google": { "id": "Bekerja di Kopi Padu Rasa", "en": "Working at Kopi Padu Rasa" },
           "kartu": [
             {
@@ -843,6 +897,8 @@
         },
         {
           "nama": "Penutup",
+          "tampil": false,
+          "keterangan": "Sedang tidak ditampilkan sejak 24 Nov 2026. Ganti \"tampil\" jadi true untuk menampilkannya lagi.",
           "judul": { "id": "Setiap orang pernah berada di titik awal.", "en": "Everyone has been at the starting point." },
           "teks": [
             {

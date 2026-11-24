@@ -39,7 +39,7 @@ export default function Header() {
     });
   }, { scope: ref });
 
-  const current = (h) => (h === pathname ? 'page' : undefined);
+  const current = (h) => (h === pathname ? 'page' : h !== '/' && pathname.startsWith(h) ? 'true' : undefined);
 
   return (
     <header className="site-header" ref={ref}>

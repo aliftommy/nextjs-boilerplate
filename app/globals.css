@@ -35,6 +35,7 @@
   --f-hand: var(--font-alte), 'Trebuchet MS', system-ui, sans-serif;
   --f-body: var(--font-alte), system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --f-poppins: var(--font-poppins), system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --f-header: var(--font-open-sans), system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
   --container: 1200px;
   --gutter: clamp(16px, 4vw, 40px);
@@ -185,6 +186,8 @@ html.motion-ok [data-reveal] { opacity: 0; }
   pointer-events: none;
 }
 .nav-shell { position: relative; pointer-events: auto; }
+/* Header (and the matching top bar of the mobile menu) uses Open Sans. */
+.site-header, .drawer__bar { --f-display: var(--f-header); --f-body: var(--f-header); font-family: var(--f-header); }
 
 .nav-surface {
   position: absolute; inset: 0; z-index: 0;
@@ -302,19 +305,17 @@ dialog.drawer::backdrop { background: transparent; }
   padding: 18px 0 28px;
 }
 
-.drawer__nav > li { border-top: 1px solid var(--line); }
-.drawer__nav > li:last-child { border-bottom: 1px solid var(--line); }
 .drawer__link {
   display: flex; justify-content: space-between; align-items: center;
   padding: 18px var(--gutter);
-  font: 700 30px/1.1 var(--f-display); color: var(--brown-2); text-decoration: none;
+  font: 400 30px/1.1 var(--f-display); color: var(--brown-2); text-decoration: none;
 }
-.drawer__link::after { content: "→"; font: 600 20px var(--f-body); opacity: .35; transition: transform .2s, opacity .2s; }
+.drawer__link::after { content: "→"; font: 400 20px var(--f-body); opacity: .35; transition: transform .2s, opacity .2s; }
 .drawer__link:hover::after { transform: translateX(4px); opacity: .8; }
 .drawer__link[aria-current] { color: var(--caramel-dark); }
 
 .drawer__extra { flex: 1; display: flex; flex-direction: column; gap: 18px; margin-top: 28px; }
-.drawer__ig { align-self: flex-start; font-weight: 700; color: var(--brown-2); text-decoration: none; }
+.drawer__ig { align-self: flex-start; font-weight: 400; color: var(--brown-2); text-decoration: none; }
 .drawer__ig:hover { text-decoration: underline; }
 .drawer__bottom { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
 
@@ -582,11 +583,17 @@ a.slide__media:hover > img { transform: scale(1.02); }
 
 .pgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: clamp(14px, 2vw, 24px); }
 .pgrid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+/* Name and price always stay on one line: both shrink with the card width (--pc-fit)
+   so the longest name ("Kopi Padu Pandan") still fits next to its price. */
 .pcard {
   position: relative; display: flex; flex-direction: column;
   background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
   box-shadow: var(--shadow-sm); overflow: hidden;
   transition: transform .28s var(--ease-out), box-shadow .28s;
+  container-type: inline-size;
+  --pc-pad: 14px; --pc-gap: 10px;
+  --pc-name: clamp(18px, 1.6vw, 21px); --pc-price: 16px;
+  --pc-fit: calc(100cqi - 2 * var(--pc-pad) - var(--pc-gap));
 }
 .pcard:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
 .pcard__photo {
@@ -600,9 +607,13 @@ a.slide__media:hover > img { transform: scale(1.02); }
   padding: 6px 9px; border-radius: 999px; background: var(--red); color: #fff;
   font: 800 11.5px/1 var(--f-body); letter-spacing: .03em;
 }
-.pcard__body { flex: 1; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 14px 14px 16px; }
-.pcard__name { flex: 1; min-width: 0; font: 700 clamp(18px, 1.6vw, 21px)/1.1 var(--f-display); color: var(--brown-2); letter-spacing: .01em; }
-.pcard__price { font: 800 16px/1.1 var(--f-body); color: var(--brown-2); white-space: nowrap; }
+.pcard__body { flex: 1; display: flex; justify-content: space-between; align-items: baseline; gap: var(--pc-gap); padding: 14px var(--pc-pad) 16px; }
+.pcard__name {
+  flex: 1; min-width: 0;
+  font: 700 min(var(--pc-name), calc(var(--pc-fit) / 12.9))/1.25 var(--f-display); color: var(--brown-2);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.pcard__price { font: 800 min(var(--pc-price), calc(var(--pc-fit) / 14.6))/1.1 var(--f-body); color: var(--brown-2); white-space: nowrap; }
 .pcard__price small { font-size: .68em; font-weight: 700; margin-right: .2em; }
 
 .section-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px 24px; margin-bottom: 14px; }
@@ -1085,7 +1096,8 @@ a.app-pill:hover { background: var(--c); border-color: var(--c); color: #fff; }
 .lang-text button { border: 0; background: none; cursor: pointer; color: var(--bar-ink-on); font-weight: 600; font-size: 14px; padding: 4px 2px; border-bottom: 2px solid transparent; }
 .lang-text button[aria-pressed="true"] { color: var(--bar-ink); border-color: var(--caramel); }
 .lang-text span { opacity: .4; }
-.drawer .lang-text button { color: var(--muted); }
+.drawer .lang-text button { color: var(--muted); font-weight: 400; }
+.drawer .region { font-weight: 400; }
 .drawer .lang-text button[aria-pressed="true"] { color: var(--brown-2); }
 
 @media (max-width: 1100px) {
@@ -1205,9 +1217,8 @@ a.app-pill:hover { background: var(--c); border-color: var(--c); color: #fff; }
   }
   .cloud { height: 18vw; width: 60vw; }
   .pgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .pcard__body { padding: 12px 10px 12px; gap: 6px; }
-  .pcard__name { font-size: 15px; }
-  .pcard__price { font-size: 13.5px; }
+  .pcard { --pc-pad: 8px; --pc-gap: 4px; --pc-name: 15px; --pc-price: 13.5px; }
+  .pcard__body { padding-block: 11px 12px; }
   .page-hero { border-radius: 0 0 50% 50% / 0 0 26px 26px; }
   .modal .app-grid { grid-template-columns: 1fr; }
   .app-btn { padding: 14px 16px; }
@@ -1218,7 +1229,6 @@ a.app-pill:hover { background: var(--c); border-color: var(--c); color: #fff; }
   .footer__col--wide { grid-column: 1 / -1; }
 }
 @media (max-width: 380px) {
-  .pcard__body { padding-inline: 8px; }
   .addons { padding: 18px 16px; }
   .addons__table tbody th { font-size: 1.1rem; white-space: normal; }
 }

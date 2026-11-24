@@ -1,5 +1,5 @@
 import localFont from 'next/font/local';
-import { Poppins } from 'next/font/google';
+import { Open_Sans, Poppins } from 'next/font/google';
 import AppEffects from '@/components/AppEffects';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
@@ -17,6 +17,7 @@ const alte = localFont({
   display: 'swap',
 });
 const poppins = Poppins({ subsets: ['latin'], weight: ['500', '600', '700'], variable: '--font-poppins', display: 'swap' });
+const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans', display: 'swap' });
 
 export const metadata = {
   ...(SITE_URL ? { metadataBase: new URL(SITE_URL) } : {}),
@@ -41,7 +42,7 @@ setTimeout(function(){if(!c.contains('app-ready'))c.remove('motion-ok')},5000);
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id" className={`${alte.variable} ${poppins.variable}`} suppressHydrationWarning>
+    <html lang="id" className={`${alte.variable} ${poppins.variable} ${openSans.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: HEAD_SCRIPT }} />
       </head>

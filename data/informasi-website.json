@@ -472,6 +472,7 @@
             },
             {
               "nama": "Limbung",
+              "dine_in": true,
               "foto": "limbung",
               "posisi_foto": 0.9,
               "link": {
@@ -959,8 +960,6 @@
           "judul": { "id": "We Are Hiring", "en": "We Are Hiring" },
           "label_lokasi": { "id": "Lokasi penempatan", "en": "Placement" },
           "tombol_detail": { "id": "Lihat syarat & cara melamar", "en": "Requirements & how to apply" },
-          "label_kecil_detail": "Kopi Padu Rasa",
-          "tombol_kembali": { "id": "Kembali ke Karir", "en": "Back to Careers" },
           "judul_kualifikasi": { "id": "Kualifikasi", "en": "Requirements" },
           "judul_berkas": { "id": "Berkas lamaran", "en": "Documents" },
           "judul_benefit": { "id": "Benefit", "en": "Benefits" },

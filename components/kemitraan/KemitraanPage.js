@@ -2,6 +2,7 @@
 import { useRef } from 'react';
 import { page, part } from '@/lib/data';
 import { gsap, motionOK, ScrollTrigger, useGSAP } from '@/lib/gsap';
+import { LOGO_PATHS, LOGO_STROKE, LOGO_VIEWBOX } from '@/lib/logo';
 import { IconWa } from '../icons';
 import { useDocTitle, useLang } from '../lang';
 import { useReveal } from '../reveal';
@@ -48,11 +49,8 @@ function MitraArt() {
     <div className="mitra-art" aria-hidden="true" ref={ref}>
       <div className="mitra-art__ring" />
       <div className="mitra-art__disc" />
-      <svg className="mitra-art__mark" viewBox="-200.5 -195.5 990 990">
-        <path pathLength="1" d="M60 160C150 92 300 58 400 104c52 28 44 96-18 110-70 18-150-2-156-44-6-40 40-58 80-52 40 7 46 42 16 52-22 7-44-2-42-15" />
-        <path pathLength="1" d="M185 235c77 57 235 61 305-5 50-50 40-138-35-180" />
-        <path pathLength="1" d="M112 212c0 88 8 188 28 268 20 92 342 96 365 0 15-70 20-130 25-180" />
-        <path pathLength="1" d="M445 425c-5 35-20 55-40 67" />
+      <svg className="mitra-art__mark" viewBox={LOGO_VIEWBOX} strokeWidth={LOGO_STROKE}>
+        {LOGO_PATHS.map((d) => <path key={d} pathLength="1" d={d} />)}
       </svg>
       {badge1 && <span className="mitra-art__badge mitra-art__badge--1">{t(badge1)}</span>}
       {badge2 && <span className="mitra-art__badge mitra-art__badge--2">{t(badge2)}</span>}

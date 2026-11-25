@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import { useRef } from 'react';
 import { JOB, JOB_PART } from '@/lib/data';
 import { IconCheck } from '../icons';
@@ -34,8 +33,6 @@ export default function LowonganPage() {
       <section className="page-hero job-page" aria-labelledby="jobTitle">
         <div className="container job-page__grid">
           <div className="job-page__head">
-            <Link className="back-link" href="/karir/"><span aria-hidden="true">←</span>{t(JOB_PART.tombol_kembali)}</Link>
-            <p className="kicker">{t(JOB_PART.label_kecil_detail)}</p>
             <h1 className="page-title job-page__title" id="jobTitle">{t(job.posisi)}</h1>
             <JobPlaces list={job.lokasi} />
           </div>

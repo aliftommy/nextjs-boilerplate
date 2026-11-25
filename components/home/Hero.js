@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRef } from 'react';
 import { STORE_COUNT } from '@/lib/data';
 import { gsap, motionOK, useGSAP } from '@/lib/gsap';
+import { LOGO_PATHS, LOGO_STROKE, LOGO_VIEWBOX } from '@/lib/logo';
 import { T, useLang } from '../lang';
 
 const ARROW = 'M8 3C4 14 10 24 21 30m0 0-9-1m9 1-2-9';
@@ -38,21 +39,14 @@ const STICKERS = [
 ];
 const CLOUD_SECONDS = [70, 95, 120];
 
-export const LOGO_VIEWBOX = '-200.5 -195.5 990 990';
-const MARK_PATHS = [
-  'M60 160C150 92 300 58 400 104c52 28 44 96-18 110-70 18-150-2-156-44-6-40 40-58 80-52 40 7 46 42 16 52-22 7-44-2-42-15',
-  'M185 235c77 57 235 61 305-5 50-50 40-138-35-180',
-  'M112 212c0 88 8 188 28 268 20 92 342 96 365 0 15-70 20-130 25-180',
-  'M445 425c-5 35-20 55-40 67',
-];
 const VEIL_MAX_MS = 2200;
 let stopTimer = 0;
 
 export function HeroVeil() {
   return (
     <div className="veil" aria-hidden="true">
-      <svg className="veil__mark" viewBox={LOGO_VIEWBOX}>
-        {MARK_PATHS.map((d) => <path key={d} pathLength="1" d={d} />)}
+      <svg className="veil__mark" viewBox={LOGO_VIEWBOX} strokeWidth={LOGO_STROKE}>
+        {LOGO_PATHS.map((d) => <path key={d} pathLength="1" d={d} />)}
       </svg>
     </div>
   );
@@ -113,10 +107,6 @@ export default function Hero() {
           duration: 0.75, ease: 'power2.out', onComplete: () => p.remove(),
         });
       }
-      gsap.fromTo(hero, { x: 0, y: 0 }, {
-        keyframes: [{ x: 1.5, y: 1, duration: 0.07 }, { x: -1.5, y: -1, duration: 0.07 }, { x: 0, y: 0, duration: 0.1 }],
-        ease: 'none', overwrite: 'auto', clearProps: 'transform',
-      });
     });
 
     const float = () => {

@@ -23,7 +23,7 @@ export const metadata = {
   ...(SITE_URL ? { metadataBase: new URL(SITE_URL) } : {}),
   ...metaOf('Beranda'),
   icons: {
-    icon: [{ url: '/img/favicon.svg', type: 'image/svg+xml' }, { url: '/img/favicon-64.png', type: 'image/png', sizes: '64x64' }],
+    icon: [{ url: '/img/favicon.svg', type: 'image/svg+xml' }, { url: '/img/favicon-32.png', type: 'image/png', sizes: '32x32' }, { url: '/img/favicon-64.png', type: 'image/png', sizes: '64x64' }],
     apple: '/img/apple-touch-icon.png',
   },
 };

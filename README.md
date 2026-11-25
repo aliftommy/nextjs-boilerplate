@@ -41,6 +41,7 @@ components/
 data/informasi-website.json   semua teks, harga, menu, daftar toko
 lib/data.js              pembaca JSON + daftar foto produk (SLUG) & foto toko (STORE_PHOTO)
 lib/gsap.js              GSAP + plugin yang dipakai
+lib/logo.js              garis logo (dilacak dari foto Logo Profil) untuk logo yang digores
 lib/meta.js              pratinjau link (og:image) & alamat situs
 public/img/              semua gambar (alamatnya /img/...)
 public/.htaccess, public/_headers   pengaturan keamanan & cache untuk hosting (lihat bagian Hosting)
@@ -52,7 +53,7 @@ scripts/                 skrip pendukung build & preview
 
 Edit `data/informasi-website.json`, lalu simpan. Di mode `npm run dev`, perubahan langsung tampil. Untuk situs yang diunggah, jalankan `npm run build` lagi.
 
-**Dine in:** toko yang bisa dine in diberi `"dine_in": true` di daftar `toko` (saat ini BTP dan Pallangga). Kartunya menampilkan label **Dine in** dan **Takeaway**. Toko tanpa tanda itu hanya menampilkan **Takeaway**.
+**Dine in:** toko yang bisa dine in diberi `"dine_in": true` di daftar `toko` (saat ini BTP, Pallangga, dan Limbung). Kartunya menampilkan label **Dine in** dan **Takeaway**. Toko tanpa tanda itu hanya menampilkan **Takeaway**.
 
 ## Mengubah header atau footer
 
@@ -71,7 +72,7 @@ Pilihan bahasa ID/EN di header sedang dimatikan. Untuk menampilkannya lagi, ubah
 
 | Bagian | File | Yang terjadi |
 |---|---|---|
-| Hero Beranda | `components/home/Hero.js` | Beranda dibuka langsung pertama kali per sesi: tirai krem dengan logo tergores, memudar begitu font & foto siap (paling lama ±2,2 detik). Kunjungan pertama per sesi: tulisan hero naik masuk berurutan, latar zoom keluar, stiker "ditempel" satu per satu dengan debu & guncangan kecil, label & badge muncul, panah tergambar. Setelah itu stiker "bernapas", awan bergeser, uap kopi naik, parallax mengikuti kursor. |
+| Hero Beranda | `components/home/Hero.js` | Beranda dibuka langsung pertama kali per sesi: tirai krem dengan logo tergores, memudar begitu font & foto siap (paling lama ±2,2 detik). Kunjungan pertama per sesi: tulisan hero naik masuk berurutan, latar zoom keluar, stiker "ditempel" satu per satu dengan efek debu, label & badge muncul, panah tergambar. Setelah itu stiker "bernapas", awan bergeser, uap kopi naik, parallax mengikuti kursor. |
 | Slider promo | `components/home/PromoSlider.js` | Geser halus antar-slide (ScrollTo), ganti otomatis tiap 5 detik |
 | Muncul saat di-scroll | `components/reveal.js` | Elemen bertanda `data-reveal` naik & memudar masuk, bergantian; angka 30 berjalan dari 0 |
 | Menu ponsel | `components/ui.js` | Panel memudar, baris menu naik satu per satu (pop-up pesan online muncul & hilang langsung, tanpa animasi) |
@@ -95,6 +96,19 @@ Pengunjung yang mematikan animasi di pengaturan HP atau komputernya langsung mel
   - Toko yang belum punya foto memakai logo (`public/img/toko/logo-600.webp` & `-900.webp`, dari `foto beranda/Logo Profil`) sebagai pengganti. Logo ini tidak bisa diklik. Matikan lewat `LOGO_FOR_NO_PHOTO` di `components/lokasi/LokasiPage.js`.
   - Sementara ini toko yang punya foto ditaruh paling atas (`PHOTO_FIRST` di `lib/data.js`). Ubah ke `false` untuk kembali ke urutan JSON.
 
+## Logo
+
+Semua logo berasal dari `foto beranda/Logo Profil.jpg.jpeg`:
+
+| File | Dipakai di | Isi |
+|---|---|---|
+| `public/img/favicon.svg` (+ cadangan `favicon-32.png`, `favicon-64.png`) | ikon tab browser | garis logo tanpa latar: cokelat, krem saat browser bertema gelap |
+| `public/img/apple-touch-icon.png` | ikon saat situs disimpan ke layar iPhone | foto, persegi |
+| `public/img/logo.webp`, `public/img/toko/logo-600.webp` & `-900.webp` | ujung jalan di Karir, kartu toko tanpa foto | foto utuh |
+| `lib/logo.js` | logo yang digores garis demi garis (tirai Beranda, hero Kemitraan) | garis logo yang dilacak dari foto |
+| `public/img/logo-mark-light.svg` (krem) | header, footer, menu ponsel; logo samar di Seliter Padu, kartu & ajakan Kemitraan | garis yang sama dengan `lib/logo.js`, tanpa latar |
+| `public/img/logo-mark.svg` (cokelat) | logo samar di latar judul halaman | garis yang sama, tanpa latar |
+
 ## Hosting
 
 Isi `out/` sudah membawa dua file pengaturan. Hosting hanya membaca yang sesuai jenisnya, jadi keduanya boleh ikut diunggah:
@@ -114,7 +128,6 @@ Hasil build juga berisi `sitemap.xml` dan `robots.txt` (dibuat dari `app/sitemap
 
 - **Alamat situs:** `SITE_URL` di `lib/meta.js` berisi `https://kopipadurasa.com`. Dipakai untuk gambar pratinjau link WhatsApp/Facebook (`public/img/og-image.jpg`), `sitemap.xml`, dan `robots.txt`. Bila domain berubah, ganti di sana lalu `npm run build` lagi.
 - **Toko Takalar:** link petunjuk arahnya masih pencarian Google Maps, belum link lokasi toko (di `data/informasi-website.json`).
-- **Logo:** `public/img/logo-mark.svg` masih gambar ulang. Ganti dengan file SVG logo resmi (nama file sama).
 - **Peta Google Maps** di halaman Lokasi belum dipasang (di JSON juga masih kosong).
 - **Deskripsi Google** untuk Beranda, Menu, dan Lokasi masih draf. Ubah di `page.js` masing-masing.
 

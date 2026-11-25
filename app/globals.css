@@ -515,7 +515,7 @@ dialog.modal::backdrop {
 }
 .veil__mark { width: clamp(128px, 16vw, 184px); height: auto; aspect-ratio: 1; }
 .veil__mark path {
-  fill: none; stroke: var(--brown); stroke-width: 40; stroke-linecap: round; stroke-linejoin: round;
+  fill: none; stroke: var(--brown); stroke-linecap: round; stroke-linejoin: round;
   stroke-dasharray: 1 2; stroke-dashoffset: 1.02;
   animation: veil-draw .75s var(--ease-nav) forwards;
 }
@@ -809,7 +809,7 @@ a.app-pill:hover { background: var(--c); border-color: var(--c); color: #fff; }
 .mitra-art__disc { position: absolute; inset: 9%; border-radius: 50%; background: var(--logo-bg); box-shadow: var(--shadow); }
 .mitra-art__ring { position: absolute; inset: calc(9% - 14px); border-radius: 50%; border: 2px dashed var(--sand-2); }
 .mitra-art__mark { position: absolute; inset: 9%; overflow: visible; }
-.mitra-art__mark path { fill: none; stroke: var(--logo-ink); stroke-width: 40; stroke-linecap: round; stroke-linejoin: round; }
+.mitra-art__mark path { fill: none; stroke: var(--logo-ink); stroke-linecap: round; stroke-linejoin: round; }
 .motion-ok .mitra-art__mark path { stroke-dasharray: 1; stroke-dashoffset: 1; }
 .motion-ok .mitra-art__badge { visibility: hidden; }
 .mitra-art__badge {
@@ -1051,14 +1051,6 @@ a.app-pill:hover { background: var(--c); border-color: var(--c); color: #fff; }
   .job__art { grid-area: 1 / 1; width: 40%; }
 }
 
-.back-link {
-  display: flex; width: fit-content; align-items: center; gap: 8px; margin-bottom: 10px; padding-block: 4px;
-  font-weight: 800; font-size: 14.5px; color: var(--brown); text-decoration: none;
-}
-.back-link span { transition: transform .2s var(--ease-out); }
-.back-link:hover { color: var(--caramel-dark); }
-.back-link:hover span { transform: translateX(-3px); }
-
 /* Job page: one panel that fits the screen under the header, no scrolling needed. */
 .page-hero.job-page {
   display: grid; align-content: center;
@@ -1072,7 +1064,6 @@ a.app-pill:hover { background: var(--c); border-color: var(--c); color: #fff; }
   grid-template-areas: "head req side" "art req side" "cta req side";
 }
 .job-page__head { grid-area: head; }
-.job-page__head .kicker { font-size: clamp(18px, 1.7vw, 22px); }
 .job-page__title { font-size: clamp(40px, 4.6vw, 62px); text-transform: uppercase; }
 .job-page .job__places { margin-top: 10px; font-size: clamp(15px, 1.4vw, 18px); }
 .job-page__art { grid-area: art; position: relative; min-height: 130px; }
@@ -1118,8 +1109,6 @@ a.app-pill:hover { background: var(--c); border-color: var(--c); color: #fff; }
   .job-page__grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "req" "side" "cta"; gap: 8px; }
   .job-page__art { display: none; }
   .job-page__head { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 2px 12px; }
-  .job-page__head .back-link { margin: 0; font-size: 13.5px; }
-  .job-page__head .kicker { justify-self: end; margin: 0; font-size: 15px; }
   .job-page__title { font-size: 36px; }
   .job-page .job__places { margin-top: 0; font-size: 13.5px; letter-spacing: .1em; }
   .job-block { padding: 12px 14px; }

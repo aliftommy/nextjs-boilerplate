@@ -5,6 +5,7 @@ import { gsap, motionOK, ScrollTrigger, useGSAP } from '@/lib/gsap';
 import { IconWa } from '../icons';
 import { useDocTitle, useLang } from '../lang';
 import { useReveal } from '../reveal';
+import Investasi from './Investasi';
 
 const TAB = page('Kemitraan').judul_tab;
 const HEAD = part('Kemitraan', 'Judul halaman');
@@ -126,6 +127,8 @@ export default function KemitraanPage() {
           </ol>
         </div>
       </section>
+
+      <Investasi />
 
       <section className="section steps" id="alur" aria-labelledby="stepsTitle">
         <div className="container">

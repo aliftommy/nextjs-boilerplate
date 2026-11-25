@@ -429,6 +429,8 @@
             {
               "nama": "Pallangga",
               "dine_in": true,
+              "foto": "pallangga",
+              "posisi_foto": 0.85,
               "link": {
                 "petunjuk_arah": "https://maps.app.goo.gl/t2AzQTztdGh4Y6wF9",
                 "GoFood": "https://gofood.link/a/S8cdje3",
@@ -470,6 +472,8 @@
             },
             {
               "nama": "Limbung",
+              "foto": "limbung",
+              "posisi_foto": 0.9,
               "link": {
                 "petunjuk_arah": "https://maps.app.goo.gl/6kbzoyAhz8E65XWWA",
                 "GoFood": "https://gofood.link/a/TwFApK3",
@@ -709,6 +713,186 @@
             }
           ],
           "keterangan": "\"ikon\" pilih salah satu: lencana, pendampingan, grafik."
+        },
+        {
+          "nama": "Peluang Investasi",
+          "keterangan": "Tiga bagian bernomor: skema investasi (kartu harga), perbandingan skema (rincian A & B berdampingan), dan kolaborasi dengan brand lain. \"nama_lain\" tampil kecil di bawah nama skema; kosongkan (\"\") bila tidak perlu. \"ikon\" kolaborasi pilih salah satu: produk, promosi, event, lainnya.",
+          "label_kecil": { "id": "Peluang Investasi", "en": "Investment Opportunity" },
+          "judul": { "id": "Bersama tumbuh membangun bisnis", "en": "Growing a business together" },
+          "teks": {
+            "id": "Investasi hari ini, untuk peluang lebih besar esok nanti.",
+            "en": "Invest today for bigger opportunities tomorrow."
+          },
+          "skema": {
+            "judul": { "id": "Skema Investasi", "en": "Investment Schemes" },
+            "tombol_rincian": { "id": "Lihat rincian ↓", "en": "See details ↓" },
+            "pilihan": [
+              {
+                "kode": "A",
+                "nama": { "id": "Investasi Penuh", "en": "Fully Funded" },
+                "nama_lain": { "id": "Fully Funded", "en": "" },
+                "angka": "150–170",
+                "satuan": { "id": "Juta", "en": "million IDR" },
+                "teks": {
+                  "id": "Investor menyediakan 100% modal sesuai RAB.",
+                  "en": "The investor provides 100% of the capital according to the budget plan (RAB)."
+                }
+              },
+              {
+                "kode": "B",
+                "nama": { "id": "Investasi Parsial", "en": "Partial Investment" },
+                "nama_lain": { "id": "Partial Investment", "en": "" },
+                "angka": "16",
+                "satuan": { "id": "Juta / Slot", "en": "million IDR / slot" },
+                "teks": {
+                  "id": "10% dari asumsi total investasi 160 juta, minimal 1 slot.",
+                  "en": "10% of an assumed total investment of IDR 160 million, minimum 1 slot."
+                }
+              }
+            ]
+          },
+          "perbandingan": {
+            "judul": { "id": "Perbandingan Skema Investasi", "en": "Investment Scheme Comparison" },
+            "label": {
+              "peran": { "id": "Alokasi Peran & Tanggung Jawab", "en": "Roles & Responsibilities" },
+              "investor": { "id": "Investor", "en": "Investor" },
+              "pengelola": { "id": "Pengelola", "en": "Operator" },
+              "bagi_hasil": { "id": "Pembagian Keuntungan", "en": "Profit Sharing" },
+              "keterangan": { "id": "Keterangan", "en": "Stage" },
+              "catatan": { "id": "Catatan Penting", "en": "Important Notes" }
+            },
+            "skema": [
+              {
+                "kode": "A",
+                "nama": { "id": "Investasi Penuh", "en": "Fully Funded" },
+                "nama_lain": { "id": "Fully Funded", "en": "" },
+                "teks": {
+                  "id": "Investor menanggung 100% modal finansial yang dibutuhkan untuk pendirian atau ekspansi bisnis. Pengelola tidak menyetor modal uang, melainkan menyetor modal keahlian, waktu, dan operasional (sweat equity).",
+                  "en": "The investor covers 100% of the financial capital needed to set up or expand the business. The operator contributes no cash; instead they contribute expertise, time, and operations (sweat equity)."
+                },
+                "peran_investor": [
+                  { "id": "Menyediakan dana sesuai RAB.", "en": "Provides funds according to the budget plan (RAB)." },
+                  { "id": "Memantau laporan keuangan secara berkala.", "en": "Reviews financial reports regularly." }
+                ],
+                "peran_pengelola": [
+                  { "id": "Menyumbang keahlian, waktu, dan tenaga.", "en": "Contributes expertise, time, and effort." },
+                  { "id": "Menangani operasional, tim, pemasaran, & strategi bisnis.", "en": "Handles operations, the team, marketing, & business strategy." }
+                ],
+                "bagi_hasil": [
+                  { "keterangan": { "id": "Sebelum modal kembali", "en": "Before capital is returned" }, "investor": "60%", "pengelola": "40%" },
+                  { "keterangan": { "id": "Setelah modal kembali", "en": "After capital is returned" }, "investor": "40%", "pengelola": "60%" }
+                ],
+                "penjelasan_bagi_hasil": [
+                  {
+                    "judul": { "id": "Sebelum modal kembali", "en": "Before capital is returned" },
+                    "id": "Hingga modal kembali 100% atau Break-Even Point (BEP) tercapai.",
+                    "en": "Until 100% of the capital is returned or the Break-Even Point (BEP) is reached."
+                  },
+                  {
+                    "judul": { "id": "Setelah modal kembali", "en": "After capital is returned" },
+                    "id": "Sesuai kesepakatan awal.",
+                    "en": "As per the initial agreement."
+                  }
+                ],
+                "catatan": [
+                  {
+                    "judul": { "id": "Kontribusi Lahan", "en": "Land Contribution" },
+                    "id": "Lahan investor dapat dihitung sebagai modal investasi.",
+                    "en": "The investor's land can be counted as investment capital."
+                  },
+                  {
+                    "judul": { "id": "Transparansi Keuangan", "en": "Financial Transparency" },
+                    "id": "Investor menerima laporan keuangan dan perkembangan usaha secara berkala.",
+                    "en": "The investor receives regular financial and business progress reports."
+                  },
+                  {
+                    "judul": { "id": "Mitigasi Risiko", "en": "Risk Mitigation" },
+                    "id": "Kerugian akibat force majeure atau risiko pasar, di luar kelalaian pengelola, ditanggung investor. Pengelola menanggung kehilangan waktu, tenaga, dan ide.",
+                    "en": "Losses due to force majeure or market risk, other than the operator's negligence, are borne by the investor. The operator bears the loss of time, effort, and ideas."
+                  }
+                ]
+              },
+              {
+                "kode": "B",
+                "nama": { "id": "Investasi Parsial", "en": "Partial Investment" },
+                "nama_lain": { "id": "Partial Investment", "en": "" },
+                "teks": {
+                  "id": "Modal finansial disediakan bersama oleh investor dengan persentase tertentu mulai dari 10% dari total investasi atau 16 juta per slotnya. Skema ini sangat baik untuk menyamakan risiko (skin in the game) sehingga seluruh pihak sama-sama berkomitmen tinggi sejak hari pertama.",
+                  "en": "Financial capital is provided jointly, with the investor contributing a set percentage starting from 10% of the total investment, or IDR 16 million per slot. This scheme shares the risk evenly (skin in the game), so every party is fully committed from day one."
+                },
+                "peran_investor": [
+                  { "id": "Menyediakan modal sesuai jumlah slot.", "en": "Provides capital according to the number of slots." }
+                ],
+                "peran_pengelola": [
+                  { "id": "Memenuhi sisa slot.", "en": "Funds the remaining slots." },
+                  { "id": "Menjalankan operasional tim, pemasaran, dan strategi bisnis.", "en": "Runs team operations, marketing, and business strategy." }
+                ],
+                "bagi_hasil": [
+                  { "keterangan": { "id": "Sebelum modal kembali", "en": "Before capital is returned" }, "investor": "60%", "pengelola": "40%" },
+                  { "keterangan": { "id": "Setelah modal kembali", "en": "After capital is returned" }, "investor": "40%", "pengelola": "60%" }
+                ],
+                "penjelasan_bagi_hasil": [
+                  {
+                    "judul": { "id": "Sebelum modal kembali", "en": "Before capital is returned" },
+                    "id": "Hingga modal kembali 100% atau Break-Even Point (BEP) tercapai.",
+                    "en": "Until 100% of the capital is returned or the Break-Even Point (BEP) is reached."
+                  },
+                  {
+                    "judul": { "id": "Setelah modal kembali", "en": "After capital is returned" },
+                    "id": "Sesuai kesepakatan awal.",
+                    "en": "As per the initial agreement."
+                  }
+                ],
+                "catatan": [
+                  {
+                    "judul": { "id": "Hak atas Laba", "en": "Profit Rights" },
+                    "id": "Hak investor atas laba mengikuti porsi setoran modal dan ketentuan bagi hasil.",
+                    "en": "The investor's right to profit follows their share of paid-in capital and the profit-sharing terms."
+                  },
+                  {
+                    "judul": { "id": "Transparansi Keuangan", "en": "Financial Transparency" },
+                    "id": "Laporan keuangan dan perkembangan usaha diberikan berkala.",
+                    "en": "Financial and business progress reports are provided regularly."
+                  },
+                  {
+                    "judul": { "id": "Mitigasi Risiko", "en": "Risk Mitigation" },
+                    "id": "Risiko ditanggung sesuai porsi modal dan perjanjian kerja sama.",
+                    "en": "Risk is shared according to each party's capital share and the partnership agreement."
+                  }
+                ]
+              }
+            ]
+          },
+          "kolaborasi": {
+            "judul": { "id": "Kolaborasi dengan Brand Lain", "en": "Collaborating with Other Brands" },
+            "teks": { "id": "Manfaat, hak, dan kewajiban disepakati bersama.", "en": "Benefits, rights, and obligations are agreed together." },
+            "poin": [
+              {
+                "ikon": "produk",
+                "judul": { "id": "Marketing Produk", "en": "Product Marketing" },
+                "id": "Pengembangan atau pemasaran produk bersama.",
+                "en": "Joint product development or marketing."
+              },
+              {
+                "ikon": "promosi",
+                "judul": { "id": "Promosi", "en": "Promotion" },
+                "id": "Promosi silang untuk menjangkau pelanggan kedua brand.",
+                "en": "Cross-promotion to reach both brands' customers."
+              },
+              {
+                "ikon": "event",
+                "judul": { "id": "Event", "en": "Events" },
+                "id": "Acara, sponsorship, dan aktivitas bersama.",
+                "en": "Joint events, sponsorships, and activities."
+              },
+              {
+                "ikon": "lainnya",
+                "judul": { "id": "Lainnya", "en": "Other" },
+                "id": "Kerja sama lain sesuai kesepakatan.",
+                "en": "Other forms of collaboration by agreement."
+              }
+            ]
+          }
         },
         {
           "nama": "Alur Kemitraan",
